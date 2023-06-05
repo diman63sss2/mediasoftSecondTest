@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/diman63sss2/mediasoftSecondTest/issues"
   },
-  "homepage": "https://github.com/diman63sss2/mediasoftSecondTest#readme"
+  "homepage": "https://github.com/diman63sss2/mediasoftSecondTest#readme",
+  "dependencies": {
+    "react": "^18.2.0"
+  }
 }
