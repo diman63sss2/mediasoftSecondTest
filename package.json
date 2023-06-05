@@ -1,0 +1,19 @@
+{
+  "name": "mediasoftsecondtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diman63sss2/mediasoftSecondTest.git"
+  },
+  "author": "Dmitri Sushkov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diman63sss2/mediasoftSecondTest/issues"
+  },
+  "homepage": "https://github.com/diman63sss2/mediasoftSecondTest#readme"
+}
