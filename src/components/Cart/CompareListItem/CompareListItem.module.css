@@ -1,29 +1,28 @@
 .item {
-    width: 220px;
-    min-width: 220px;
-    border-right: 1px solid black;
+  width: 220px;
+  min-width: 220px;
+  border-right: 1px solid black;
 }
 
-
 .image {
-    height: 90px;
-    width: auto;
+  height: 90px;
+  width: auto;
 }
 
 .cell {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100px;
-    border-bottom: 1px solid black;
-    padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100px;
+  border-bottom: 1px solid black;
+  padding: 2px;
 }
 
 .cell:nth-child(2n - 1) {
-    background: #e1e1e1;
+  background: #e1e1e1;
 }
 
 .cell:last-child {
-    border-bottom: 0px;
+  border-bottom: 0px;
 }

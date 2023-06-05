@@ -1,181 +1,186 @@
 .title {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .card {
-    position: relative;
-    width: 600px;
-    height: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 20px;
-    margin-top: 100px;
-    padding-right: 20px;
+  position: relative;
+  width: 600px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  margin-top: 100px;
+  padding-right: 20px;
 }
 
 .form {
-    width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .background {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-    border-radius: 20px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  border-radius: 20px;
 }
 
 .fields {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 }
 
 .button {
-    background: #6633CC;
-    color: white;
-    text-transform: uppercase;
-    border: none;
-    margin-top: 40px;
-    padding: 20px;
-    font-size: 16px;
-    font-weight: 100;
-    letter-spacing: 10px;
-    display: block;
-    appearance: none;
-    border-radius: 4px;
-    width: 100%;
-    cursor: pointer;
-    transition: 0.3s all ease;
+  background: #6633cc;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 10px;
+  display: block;
+  appearance: none;
+  border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.3s all ease;
 }
 
 .button:hover {
-    background: #353535;
+  background: #353535;
 }
 
 .inputNum {
-    border: 0px;
-    background: none;
-    font-size: 20px;
-    color: white;
-    letter-spacing: 7px;
-    width: 380px;
-    position: relative;
+  border: 0px;
+  background: none;
+  font-size: 20px;
+  color: white;
+  letter-spacing: 7px;
+  width: 380px;
+  position: relative;
 }
 
-.code input:active, .code input:hover, .code input:focus, .inputNum:active, .inputNum:hover, .inputNum:focus {
-    outline: 0;
-    outline-offset: 0;
+.code input:active,
+.code input:hover,
+.code input:focus,
+.inputNum:active,
+.inputNum:hover,
+.inputNum:focus {
+  outline: 0;
+  outline-offset: 0;
 }
 
 .inputNum::placeholder {
-    color: white;
+  color: white;
 }
 
 .inputContainer {
-    position: relative;
-    padding-bottom: 10px;
+  position: relative;
+  padding-bottom: 10px;
 }
 
 .head span {
-    color: white;
-    margin-bottom: 10px;
+  color: white;
+  margin-bottom: 10px;
 }
 
 .inputContainer:after {
-    position: absolute;
-    content: "";
-    width: 286px;
-    left: 0;
-    bottom: 0px;
-    height: 1px;
-    background: white;
+  position: absolute;
+  content: '';
+  width: 286px;
+  left: 0;
+  bottom: 0px;
+  height: 1px;
+  background: white;
 }
 
 .error {
-    color: #ff7763;
+  color: #ff7763;
 }
 
-.head label{
-    display: flex;
-    flex-direction: column;
+.head label {
+  display: flex;
+  flex-direction: column;
 }
 
 .fields {
-    padding-top: 100px;
-    padding-left: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 280px;
+  padding-top: 100px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 280px;
 }
 
 .footerHead {
-    font-size: 20px;
-    color: white;
-    margin-bottom: 10px;
-    text-transform: uppercase;
+  font-size: 20px;
+  color: white;
+  margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
 .date {
-    display: flex;
+  display: flex;
 }
 
 .date > span {
-    font-size: 30px;
-    color: white;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 4px;
-    line-height: 34px;
+  font-size: 30px;
+  color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 4px;
+  line-height: 34px;
 }
 
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .code {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
 }
 
 .code:after {
-    position: absolute;
-    content: "";
-    width: 50px;
-    right: 30px;
-    bottom: 0px;
-    height: 1px;
-    background: white;
+  position: absolute;
+  content: '';
+  width: 50px;
+  right: 30px;
+  bottom: 0px;
+  height: 1px;
+  background: white;
 }
 
 .code span {
-    color: white;
-    text-transform: uppercase;
-    font-size: 20px;
-    margin-right: 10px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-right: 10px;
 }
 
 .code input {
-    border: 0px;
-    background: none;
-    font-size: 20px;
-    color: white;
-    letter-spacing: 7px;
-    width: 80px;
-    position: relative;
+  border: 0px;
+  background: none;
+  font-size: 20px;
+  color: white;
+  letter-spacing: 7px;
+  width: 80px;
+  position: relative;
 }
 
 .code input::placeholder {
-    color: white;
+  color: white;
 }
