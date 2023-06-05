@@ -1,14 +1,11 @@
 import React from 'react';
 
-const App = () => {
+const Page404 = () => {
     return (
         <div>
-            test
+            Page404
         </div>
     );
 };
 
-export default App;
-
-
-
+export default Page404;

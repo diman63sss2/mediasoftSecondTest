@@ -1,0 +1,29 @@
+.categories {
+    min-width: 200px;
+    margin-right: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    align-self: self-start;
+}
+
+.category {
+    width: 100%;
+    padding: 10px;
+    background: #4c9bd3;
+    color: white;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    transition: 0.3s all ease;
+}
+
+.category:hover {
+    background: #D64933;
+}
+
+.category:last-child {
+    border-bottom: 0px;
+}
+
+.category.active {
+    background: #D64933;
+}

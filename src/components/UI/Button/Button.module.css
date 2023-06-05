@@ -1,0 +1,26 @@
+.button {
+    position: relative;
+    width: auto;
+    padding: 7px 15px;
+    max-width: 100%;
+    background: var(--main-color, #4c9bd3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    color: #FCFCFC;
+    cursor: pointer;
+    transition: 0.3s all ease;
+    align-self: flex-start;
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
+.button:disabled {
+    opacity: 0.6;
+}
