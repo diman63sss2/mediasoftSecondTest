@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
+    "start": "concurrently \"json-server --watch db.json\" \"webpack-dev-server --mode development --open\"",
     "build": "webpack --mode production",
     "lint": "eslint .",
     "format": "prettier --write \"src/**/*.js\""
@@ -22,6 +22,7 @@
   "dependencies": {
     "@babel/plugin-transform-react-jsx": "^7.22.3",
     "axios": "^1.4.0",
+    "json-server": "^0.17.3",
     "jwt-decode": "^3.1.2",
     "mapbox-gl": "^2.15.0",
     "mobx": "^6.9.0",
@@ -30,8 +31,11 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.3",
     "react-input-mask": "^2.0.4",
+    "react-redux": "^8.0.7",
     "react-router-dom": "^6.11.2",
     "react-select": "^5.7.3",
+    "redux": "^4.2.1",
+    "redux-saga": "^1.2.3",
     "svg-url-loader": "^8.0.0"
   },
   "devDependencies": {
@@ -39,6 +43,7 @@
     "@babel/preset-env": "^7.22.4",
     "@babel/preset-react": "^7.22.3",
     "babel-loader": "^9.1.2",
+    "concurrently": "^8.1.0",
     "css-loader": "^6.8.1",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",

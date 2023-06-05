@@ -12,6 +12,7 @@ import AppRouter from './components/AppRouter.jsx';
 
 const App = observer(() => {
   const { user } = useContext(AuthContext);
+
   const [fetchCheck, isCheckLoading] = useFetching(async () => {
     /*Здесь должен быть запрос на авторизацию пользователя, но у https://fakestoreapi.com его нет.... +_+  */
     /*Рефреш токена в https://fakestoreapi.com тоже нет.... +_+ */
