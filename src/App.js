@@ -1,15 +1,14 @@
-import './styles/App.css';
-
+import React from 'react';
 
 const App = () => {
-
-
-
-  return (
-      <div>
-          test
-      </div>
-  );
-}
+    return (
+        <div>
+            test
+        </div>
+    );
+};
 
 export default App;
+
+
+
