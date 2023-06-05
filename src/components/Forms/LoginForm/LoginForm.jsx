@@ -3,18 +3,20 @@ import cl from './LoginForm.module.css';
 import { useFetching } from '../../hooks/useFetching';
 import Input from '../../UI/Input/Input.jsx';
 import { login } from '../../../http/userAPI';
-import { AuthContext } from '../../../context';
+import { useSelector, useDispatch } from 'react-redux';
+import { setIsAuth, setUser } from '../../../store/userActions';
 
 const LoginForm = ({ setSignVisible }) => {
-  const { user } = useContext(AuthContext);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
   /* username: hopkins
    *  password: William56$hj
    * */
   const [fetchLogin, isLoginLoading] = useFetching(async (formData) => {
     const response = await login(formData);
     setSignVisible(false);
-    user.setUser(response);
-    user.setIsAuth(true);
+    dispatch(setUser(response));
+    dispatch(setIsAuth(true));
     console.log(response);
   });
 

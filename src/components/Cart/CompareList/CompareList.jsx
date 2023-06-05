@@ -1,11 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import cl from './CompareList.module.css';
-import { AuthContext } from '../../../context';
-import { observer } from 'mobx-react-lite';
 import CompareListItem from '../CompareListItem/CompareListItem.jsx';
 
-const CompareList = observer(({ products }) => {
-  const { user } = useContext(AuthContext);
+const CompareList = ({ products }) => {
   return (
     <div className={cl.list}>
       {products.map((product) => (
@@ -13,6 +10,6 @@ const CompareList = observer(({ products }) => {
       ))}
     </div>
   );
-});
+};
 
 export default CompareList;

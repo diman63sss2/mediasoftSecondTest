@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../context';
-import { observer } from 'mobx-react-lite';
+import React from 'react';
 import CartList from '../components/Cart/CartList/CartList.jsx';
 import CompareList from '../components/Cart/CompareList/CompareList.jsx';
+import { useSelector } from 'react-redux';
 
-const Cart = observer(() => {
-  const { user } = useContext(AuthContext);
+const Cart = () => {
+  const user = useSelector((state) => state.user);
   return (
     <div className="container">
       <CartList />
@@ -16,7 +15,7 @@ const Cart = observer(() => {
         return;
       }).length >= 2 && (
         <CompareList
-          products={JSON.parse(JSON.stringify(user.products)).filter((el) => {
+          products={user.products.filter((el) => {
             if (el.compare) {
               return el;
             }
@@ -26,6 +25,6 @@ const Cart = observer(() => {
       )}
     </div>
   );
-});
+};
 
 export default Cart;

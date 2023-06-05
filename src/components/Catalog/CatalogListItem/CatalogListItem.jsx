@@ -1,23 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import cl from './CatalogListItem.module.css';
-import { AuthContext } from '../../../context';
-import { observer } from 'mobx-react-lite';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProduct } from '../../../store/userActions';
 
-const CatalogListItem = observer(({ product }) => {
-  const { user } = useContext(AuthContext);
+const CatalogListItem = ({ product }) => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
 
-  const addProduct = () => {
-    const products = JSON.parse(JSON.stringify(user.products));
-    let currProduct = null;
-    for (let i = 0; i < products.length; i++) {
-      if (products[i].id === product.id) {
-        currProduct = products[i].id;
-        products[i].num = products[i].num + 1;
-        user.setProducts([...products]);
-        return;
-      }
-    }
-    user.setProducts([...products, { ...product, num: 1 }]);
+  const handleAddProduct = () => {
+    dispatch(addProduct(product));
   };
 
   return (
@@ -38,7 +29,7 @@ const CatalogListItem = observer(({ product }) => {
       </div>
       <div className={cl.additional}>
         {user.isAuth ? (
-          <button className={cl.button} onClick={() => addProduct()}>
+          <button className={cl.button} onClick={handleAddProduct}>
             Добавить в корзину
           </button>
         ) : (
@@ -49,6 +40,6 @@ const CatalogListItem = observer(({ product }) => {
       </div>
     </li>
   );
-});
+};
 
 export default CatalogListItem;

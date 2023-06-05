@@ -1,60 +1,31 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import cl from './CartListItem.module.css';
-import { observer } from 'mobx-react-lite';
-import { AuthContext } from '../../../context';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addProduct,
+  compareProduct,
+  deleteProduct,
+  reduceProduct,
+} from '../../../store/userActions';
 
-const CartListItem = observer(({ product }) => {
-  const { user } = useContext(AuthContext);
+const CartListItem = ({ product }) => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
 
-  const addProduct = () => {
-    user.setProducts(
-      JSON.parse(JSON.stringify(user.products)).filter((el) => {
-        if (product.id === el.id) {
-          el.num += 1;
-        }
-        return product;
-      })
-    );
+  const handleAddProduct = () => {
+    dispatch(addProduct(product));
   };
 
-  const reduceProduct = () => {
-    user.setProducts(
-      JSON.parse(JSON.stringify(user.products)).filter((el) => {
-        if (product.id === el.id) {
-          el.num -= 1;
-        }
-        if (el.num <= 0) {
-          return;
-        }
-        return product;
-      })
-    );
+  const handleReduceProduct = () => {
+    dispatch(reduceProduct(product));
   };
 
-  const deleteProduct = () => {
-    user.setProducts(
-      JSON.parse(JSON.stringify(user.products)).filter((el) => {
-        if (product.id === el.id) {
-          return;
-        }
-        return product;
-      })
-    );
+  const handleDeleteProduct = () => {
+    dispatch(deleteProduct(product));
   };
 
-  const compareProduct = () => {
-    user.setProducts(
-      JSON.parse(JSON.stringify(user.products)).filter((el) => {
-        if (product.id === el.id) {
-          if (product.compare) {
-            el.compare = false;
-          } else {
-            el.compare = true;
-          }
-        }
-        return el;
-      })
-    );
+  const handleCompareProduct = () => {
+    dispatch(compareProduct(product));
   };
 
   return (
@@ -75,15 +46,15 @@ const CartListItem = observer(({ product }) => {
       </div>
       <div className={cl.interactions}>
         <div className={cl.numberContainer}>
-          <div onClick={() => addProduct()} className={cl.pluse}>
+          <div onClick={handleAddProduct} className={cl.pluse}>
             +
           </div>
           <div className={cl.number}>{product.num}</div>
-          <div onClick={() => reduceProduct()} className={cl.minus}>
+          <div onClick={handleReduceProduct} className={cl.minus}>
             -
           </div>
         </div>
-        <div onClick={() => deleteProduct()} className={cl.delete}>
+        <div onClick={handleDeleteProduct} className={cl.delete}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -94,7 +65,7 @@ const CartListItem = observer(({ product }) => {
           </svg>
         </div>
         <div
-          onClick={() => compareProduct()}
+          onClick={handleCompareProduct}
           className={cl.compare + ` ${product.compare ? cl.active : ''}`}
         >
           <svg
@@ -110,6 +81,6 @@ const CartListItem = observer(({ product }) => {
       </div>
     </div>
   );
-});
+};
 
 export default CartListItem;

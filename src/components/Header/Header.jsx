@@ -6,18 +6,19 @@ import cartImg from '../../images/cart.svg';
 import cl from './Header.module.css';
 import Modal from '../UI/Modal/Modal.jsx';
 import LoginForm from '../Forms/LoginForm/LoginForm.jsx';
-import { observer } from 'mobx-react-lite';
-import { AuthContext } from '../../context';
+import { useDispatch, useSelector } from 'react-redux';
+import { logOut, setUser } from '../../store/userActions';
 
-const Header = observer(() => {
-  const { user } = useContext(AuthContext);
+const Header = () => {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [signVisible, setSignVisible] = useState(false);
   const [registerVisible, setRegisterVisible] = useState(false);
 
-  const LogOut = () => {
-    user.setIsAuth(false);
-    user.setUser({});
+  const handleLogOut = () => {
+    dispatch(logOut());
+    setUser({});
     localStorage.removeItem('token');
     navigate('/');
   };
@@ -37,7 +38,7 @@ const Header = observer(() => {
                   <div className={cl.num}>{user.numberProducts}</div>
                 )}
               </Link>
-              <div onClick={() => LogOut()} className={cl.sign}>
+              <div onClick={handleLogOut} className={cl.sign}>
                 Log out
               </div>
             </div>
@@ -64,6 +65,6 @@ const Header = observer(() => {
       </div>
     </header>
   );
-});
+};
 
 export default Header;

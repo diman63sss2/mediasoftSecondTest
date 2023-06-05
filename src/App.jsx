@@ -2,16 +2,17 @@ import './styles/App.css';
 import { BrowserRouter } from 'react-router-dom';
 import React from 'react';
 import Header from './components/Header/Header.jsx';
-import { useContext, useEffect } from 'react';
-import { observer } from 'mobx-react-lite';
-import { AuthContext } from './context';
+import { useEffect } from 'react';
 import { useFetching } from './components/hooks/useFetching';
 import jwtDecode from 'jwt-decode';
 import Footer from './components/Footer/Footer.jsx';
 import AppRouter from './components/AppRouter.jsx';
+import { setIsAuth, setUser } from './store/userActions';
+import { useDispatch, useSelector } from 'react-redux';
 
-const App = observer(() => {
-  const { user } = useContext(AuthContext);
+const App = () => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
 
   const [fetchCheck, isCheckLoading] = useFetching(async () => {
     /*Здесь должен быть запрос на авторизацию пользователя, но у https://fakestoreapi.com его нет.... +_+  */
@@ -28,11 +29,11 @@ const App = observer(() => {
     if (timeDiff > maxAllowedTimeDiffMs) {
       localStorage.removeItem('token');
       console.log('Токен устарел и был удален');
-      user.setIsAuth(false);
+      dispatch(setIsAuth(false));
     } else {
       console.log('Токен еще действителен');
-      user.setUser(jwtDecode(token));
-      user.setIsAuth(true);
+      dispatch(setUser(jwtDecode(token)));
+      dispatch(setIsAuth(true));
     }
   });
 
@@ -41,7 +42,7 @@ const App = observer(() => {
       if (localStorage.getItem('token')) {
         fetchCheck().then((r) => {});
       } else {
-        user.setIsAuth(false);
+        dispatch(setIsAuth(false));
       }
     }, // eslint-disable-next-line
     []
@@ -63,6 +64,6 @@ const App = observer(() => {
       )}
     </BrowserRouter>
   );
-});
+};
 
 export default App;

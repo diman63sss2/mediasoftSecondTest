@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { privateRoutes, publicRoutes } from '../router';
-import { AuthContext } from '../context';
+import { useSelector } from 'react-redux';
 
 const AppRouter = () => {
-  const { user } = useContext(AuthContext);
+  const user = useSelector((state) => state.user);
   if (user.isAuth) {
     return (
       <div className="content">

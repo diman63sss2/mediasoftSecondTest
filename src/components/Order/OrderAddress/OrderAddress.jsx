@@ -1,15 +1,17 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, {useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import cl from './OrderAddres.module.css';
 import { useNavigate } from 'react-router-dom';
 
-import { AuthContext } from '../../../context';
+import { useDispatch, useSelector } from 'react-redux';
+import { cleanCart } from '../../../store/userActions';
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoiZGltYW42M3MiLCJhIjoiY2xpM3N3ZTNkMGhsajNkbWw5OHlhY2lvbCJ9.o4TXATzx-pClwmG8ZEDd2w';
 
 const OrderAddress = () => {
-  const { user } = useContext(AuthContext);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
   const navigate = useNavigate();
   const mapContainerRef = useRef(null);
   const [address, setAddress] = useState('');
@@ -46,7 +48,7 @@ const OrderAddress = () => {
   const checkout = () => {
     if (address) {
       alert('Ваш заказ оформлен.');
-      user.setProducts([]);
+      dispatch(cleanCart());
       navigate('/');
     } else {
       alert('Выберите адрес.');

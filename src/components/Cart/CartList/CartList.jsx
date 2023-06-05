@@ -1,17 +1,16 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import cl from './CartList.module.css';
-import { AuthContext } from '../../../context';
-import { observer } from 'mobx-react-lite';
 import CartListItem from '../CartListItem/CartListItem.jsx';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const CartList = observer(() => {
-  const { user } = useContext(AuthContext);
+const CartList = () => {
+  const user = useSelector((state) => state.user);
   if (user.numberProducts > 0) {
     return (
       <div>
         <div className={cl.list}>
-          {JSON.parse(JSON.stringify(user.products)).map((el) => (
+          {user.products.map((el) => (
             <CartListItem key={el.id} product={el} />
           ))}
         </div>
@@ -24,6 +23,6 @@ const CartList = observer(() => {
     );
   }
   return <div>Корзина пуста</div>;
-});
+};
 
 export default CartList;
