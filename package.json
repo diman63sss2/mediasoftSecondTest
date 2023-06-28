@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"json-server --watch db.json\" \"webpack-dev-server --mode development --open\"",
-    "build": "webpack --mode production",
+    "start": "webpack serve --env port=3000",
+    "build:prod": "webpack --env mode=production",
+    "build:dev": "webpack --env mode=development",
     "lint": "eslint .",
     "format": "prettier --write \"src/**/*.js\""
   },
