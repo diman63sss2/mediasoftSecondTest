@@ -4,13 +4,14 @@ import { Link, Route, Routes } from "react-router-dom";
 import { CartPageAsync } from "./pages/CartPage/CartPage.async";
 import { MainPageAsync } from "./pages/MainPage/MainPage.async";
 import { useTheme } from "./theme/useTheme";
+import { classNames } from "./helpers/classNames/classNames";
 
 
 const App = () => {
   const {theme, toggleTheme} = useTheme();
 
   return (
-    <div className={`app ${theme}`}>
+    <div className={classNames('app', {special: true}, [theme])}>
       <button onClick={toggleTheme}>
         TOGGLE THEME.
       </button>
