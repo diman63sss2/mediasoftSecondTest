@@ -1,10 +1,10 @@
 import React, {Suspense} from "react";
 import './styles/index.scss';
 import { Link, Route, Routes } from "react-router-dom";
-import { CartPageAsync } from "./pages/CartPage/CartPage.async";
-import { MainPageAsync } from "./pages/MainPage/MainPage.async";
-import { useTheme } from "./theme/useTheme";
-import { classNames } from "./helpers/classNames/classNames";
+import { MainPage } from "pages/MainPage";
+import { useTheme } from "app/providers/ThemeProvider";
+import { classNames } from "shared/lib/classNames/classNames";
+import { CartPage } from "pages/CartPage";
 
 
 const App = () => {
@@ -23,8 +23,8 @@ const App = () => {
       </Link>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-            <Route path={'/cart'} element={<CartPageAsync/>}/>
-            <Route path={'/'}  element={<MainPageAsync/>}/>
+            <Route path={'/cart'} element={<CartPage/>}/>
+            <Route path={'/'}  element={<MainPage/>}/>
         </Routes>
       </Suspense>
     </div>
