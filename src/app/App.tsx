@@ -5,6 +5,7 @@ import { MainPage } from "pages/MainPage";
 import { useTheme } from "app/providers/ThemeProvider";
 import { classNames } from "shared/lib/classNames/classNames";
 import { CartPage } from "pages/CartPage";
+import { AppRouter } from "app/providers/router";
 
 
 const App = () => {
@@ -21,12 +22,7 @@ const App = () => {
       <Link to={'/cart'}>
         Корзина
       </Link>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-            <Route path={'/cart'} element={<CartPage/>}/>
-            <Route path={'/'}  element={<MainPage/>}/>
-        </Routes>
-      </Suspense>
+      <AppRouter/>
     </div>
   );
 };
