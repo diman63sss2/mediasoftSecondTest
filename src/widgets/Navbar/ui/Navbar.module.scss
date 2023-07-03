@@ -1,0 +1,13 @@
+.Navbar {
+  width: 100%;
+  height: var(--navbar-height);
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  background: var(--inverted-bg-color);
+}
+
+
+.links a:first-child{
+  margin-right: 15px;
+}

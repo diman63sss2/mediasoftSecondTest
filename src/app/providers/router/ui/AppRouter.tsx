@@ -1,7 +1,5 @@
 import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import { CartPage } from "pages/CartPage";
-import { MainPage } from "pages/MainPage";
 import { routeConfig } from "shared/config/routeConfig/routeConfig";
 
 const AppRouter = () => {
