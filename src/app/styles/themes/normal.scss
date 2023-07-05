@@ -1,9 +1,15 @@
 .app.light {
-  --bg-color: #ececec;
+  --bg-color: #ffffff;
   --inverted-bg-color: #000633;
 
-  --primary-color: #4C9BD3;
+  --primary-color: #000000;
   --secondary-color: #D64933;
   --inverted-primary-color: white;
   --inverted-secondary-color: #00C500;
+
+
+  /*navbar variables*/
+  --navbar-bg: #ffffff;
+  --navbar-icons: #362db0;
+  --navbar-switcher: #ffd400;
 }

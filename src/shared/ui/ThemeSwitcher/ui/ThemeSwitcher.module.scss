@@ -1,0 +1,8 @@
+.ThemeSwitcher {
+
+}
+
+.ThemeSwitcher g {
+  fill: var(--navbar-switcher);
+  transition: var(--transition-time-switcher) fill ease;
+}
