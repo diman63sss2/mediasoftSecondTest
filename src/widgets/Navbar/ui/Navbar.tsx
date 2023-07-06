@@ -2,9 +2,11 @@ import React from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Navbar.module.scss";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { ThemeSwitcher } from "shared/ui/ThemeSwitcher";
+import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { AppLogo } from "shared/ui/AppLogo/AppLogo";
 import { BasketButton } from "shared/ui/BasketButton/BasketButton";
+import { useTranslation } from "react-i18next";
+import { LangSwitcher } from "widgets/LangSwitcher/LangSwitcher";
 
 interface  NavbarProps {
   className?: string;
@@ -12,18 +14,21 @@ interface  NavbarProps {
 }
 
 export const Navbar = ({className}: NavbarProps) => {
+  const {t} = useTranslation();
+
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
       <AppLogo to={'/'}/>
-      <ThemeSwitcher/>
       <div className={cls.links}>
         <AppLink theme={AppLinkTheme.PRIMARY}  to={'/'}>
-          Главная
+          {t('Главная')}
         </AppLink>
         <AppLink theme={AppLinkTheme.PRIMARY}  to={'/about'}>
-          О сайте
+          {t('О сайте')}
         </AppLink>
       </div>
+      <ThemeSwitcher/>
+      <LangSwitcher/>
       <BasketButton/>
     </div>
   );
