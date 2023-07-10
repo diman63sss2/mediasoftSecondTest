@@ -1,15 +1,13 @@
 .app.light {
-  --bg-color: #ffffff;
-  --inverted-bg-color: #000633;
+    --bg-color: #fff;
+    --inverted-bg-color: #000633;
+    --primary-color: #000;
+    --secondary-color: #d64933;
+    --inverted-primary-color: white;
+    --inverted-secondary-color: #00c500;
 
-  --primary-color: #000000;
-  --secondary-color: #D64933;
-  --inverted-primary-color: white;
-  --inverted-secondary-color: #00C500;
-
-
-  /*navbar variables*/
-  --navbar-bg: #ffffff;
-  --navbar-icons: #362db0;
-  --navbar-switcher: #ffd400;
+    /* navbar variables */
+    --navbar-bg: #fff;
+    --navbar-icons: #362db0;
+    --navbar-switcher: #ffd400;
 }

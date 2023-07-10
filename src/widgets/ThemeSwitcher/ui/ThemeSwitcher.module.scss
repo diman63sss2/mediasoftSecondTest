@@ -1,11 +1,11 @@
 .ThemeSwitcher {
-  margin-left: auto;
-  margin-right: 20px;
-  display: flex;
-  align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .ThemeSwitcher g {
-  fill: var(--navbar-switcher);
-  transition: var(--transition-time-switcher) fill ease;
+    fill: var(--navbar-switcher);
+    transition: var(--transition-time-switcher) fill ease;
 }

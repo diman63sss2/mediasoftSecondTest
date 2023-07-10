@@ -1,17 +1,17 @@
 .Navbar {
-  width: 100%;
-  height: var(--navbar-height);
-  padding: 0px 20px;
-  display: flex;
-  align-items: center;
-  background: var(--navbar-bg);
-  transition: var(--transition-time-switcher) background ease;
+    width: 100%;
+    height: var(--navbar-height);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    background: var(--navbar-bg);
+    transition: var(--transition-time-switcher) background ease;
 }
 
 .links {
-  margin-left: auto;
+    margin-left: auto;
 }
 
-.links a:first-child{
-  margin-right: 15px;
+.links a:first-child {
+    margin-right: 15px;
 }

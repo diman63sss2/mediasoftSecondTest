@@ -9,7 +9,8 @@
     "build:dev": "webpack --env mode=development",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
-    "format": "prettier --write \"src/**/*.js\""
+    "lint:scss": "npm stylelint \"**/*.scss\"",
+    "lint:scss:fix": "npm stylelint \"**/*.scss\" --fix"
   },
   "repository": {
     "type": "git",

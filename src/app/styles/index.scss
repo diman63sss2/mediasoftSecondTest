@@ -1,14 +1,12 @@
 @import "./reset";
-@import "app/styles/variables/global.scss";
-@import "app/styles/themes/normal.scss";
-@import "app/styles/themes/dark.scss";
+@import "app/styles/variables/global";
+@import "app/styles/themes/normal";
+@import "app/styles/themes/dark";
 
 .app {
-  font: var(--font-m);
-
-  background: var(--bg-color);
-  color: var(--primary-color);
-
-  transition: var(--transition-time-switcher) background ease;
-  min-height: 100vh;
+    font: var(--font-m);
+    background: var(--bg-color);
+    color: var(--primary-color);
+    transition: var(--transition-time-switcher) background ease;
+    min-height: 100vh;
 }
