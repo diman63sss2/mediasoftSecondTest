@@ -1,0 +1,9 @@
+.PageLoader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - var(--navbar-height));
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}

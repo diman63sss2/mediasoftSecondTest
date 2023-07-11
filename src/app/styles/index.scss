@@ -1,7 +1,7 @@
 @import "./reset";
-@import "app/styles/variables/global";
-@import "app/styles/themes/normal";
-@import "app/styles/themes/dark";
+@import "./src/app/styles/variables/global";
+@import "./src/app/styles/themes/normal";
+@import "./src/app/styles/themes/dark";
 
 .app {
     font: var(--font-m);
@@ -9,4 +9,10 @@
     color: var(--primary-color);
     transition: var(--transition-time-switcher) background ease;
     min-height: 100vh;
+}
+
+.container {
+    width: 1240px;
+    margin: 0 auto;
+    max-width: 90%;
 }
