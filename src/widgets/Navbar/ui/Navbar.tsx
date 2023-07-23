@@ -10,14 +10,13 @@ import cls from './Navbar.module.scss';
 
 interface NavbarProps {
   className?: string;
-
 }
 
 export const Navbar = ({ className }: NavbarProps) => {
     const { t } = useTranslation();
 
     return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
+        <div data-testid="navbar" className={classNames(cls.Navbar, {}, [className])}>
             <AppLogo to="/" />
             <div className={cls.links}>
                 <AppLink theme={AppLinkTheme.PRIMARY} to="/">
