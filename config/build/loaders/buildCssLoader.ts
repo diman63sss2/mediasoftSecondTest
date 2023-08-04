@@ -1,3 +1,4 @@
+// @ts-ignore
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export function buildCssLoader(isDev: boolean) {

@@ -2,14 +2,14 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import MainPage from './MainPage';
+import { Navbar } from './Navbar';
 
 export default {
-    title: 'pages/MainPage',
-    component: MainPage,
-} as ComponentMeta<typeof MainPage>;
+    title: 'widgets/Navbar',
+    component: Navbar,
+} as ComponentMeta<typeof Navbar>;
 
-const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />;
+const Template: ComponentStory<typeof Navbar> = () => <Navbar />;
 
 export const Light = Template.bind({});
 Light.args = {};

@@ -2,14 +2,14 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import MainPage from './MainPage';
+import CartPage from './CartPage';
 
 export default {
-    title: 'pages/MainPage',
-    component: MainPage,
-} as ComponentMeta<typeof MainPage>;
+    title: 'pages/CartPage',
+    component: CartPage,
+} as ComponentMeta<typeof CartPage>;
 
-const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />;
+const Template: ComponentStory<typeof CartPage> = (args) => <CartPage {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {};

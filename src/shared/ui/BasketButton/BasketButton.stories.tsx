@@ -2,14 +2,14 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import MainPage from './MainPage';
+import { BasketButton } from './BasketButton';
 
 export default {
-    title: 'pages/MainPage',
-    component: MainPage,
-} as ComponentMeta<typeof MainPage>;
+    title: 'shared/BasketButton',
+    component: BasketButton,
+} as ComponentMeta<typeof BasketButton>;
 
-const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />;
+const Template: ComponentStory<typeof BasketButton> = () => <BasketButton />;
 
 export const Light = Template.bind({});
 Light.args = {};

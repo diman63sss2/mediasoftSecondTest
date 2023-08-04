@@ -2,18 +2,17 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import MainPage from './MainPage';
+import { AppLogo } from './AppLogo';
 
 export default {
-    title: 'pages/MainPage',
-    component: MainPage,
-} as ComponentMeta<typeof MainPage>;
+    title: 'shared/AppLogo',
+    component: AppLogo,
+} as ComponentMeta<typeof AppLogo>;
 
-const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />;
+const Template: ComponentStory<typeof AppLogo> = (args) => <AppLogo to="/some-path" />;
 
 export const Light = Template.bind({});
-Light.args = {};
+Light.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Dark = Template.bind({});
-Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
