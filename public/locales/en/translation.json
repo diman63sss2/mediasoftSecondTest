@@ -7,5 +7,7 @@
   "Обновить страницу": "Обновить страницу",
   "throw error": "throw error",
   "Короткий язык": "En",
-  "Войти": "Login"
+  "Войти": "Login",
+  "Increment": "Increment",
+  "Decrement": "Decrement"
 }
