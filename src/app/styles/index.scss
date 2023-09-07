@@ -6,13 +6,13 @@
 body,
 .app {
     font: var(--font-m);
-    background: var(--bg-color);
     color: var(--primary-color);
-    transition: var(--transition-time-switcher) background ease;
 }
 
 .app {
+    background: var(--bg-color);
     min-height: 100vh;
+    transition: var(--transition-time-switcher) background ease;
 }
 
 .container {
