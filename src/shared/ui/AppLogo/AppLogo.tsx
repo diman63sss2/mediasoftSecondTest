@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import Logo from 'shared/assets/images/logo.svg';
 import { Link } from 'react-router-dom';
-import { FC } from 'react';
+import { memo } from 'react';
 import cls from './AppLogo.module.scss';
 
 interface AppLogoProps {
@@ -9,7 +9,7 @@ interface AppLogoProps {
   to?: string;
 }
 
-export const AppLogo: FC<AppLogoProps> = (props) => {
+export const AppLogo = memo((props: AppLogoProps) => {
     const {
         className,
         to,
@@ -20,4 +20,4 @@ export const AppLogo: FC<AppLogoProps> = (props) => {
             <Logo />
         </Link>
     );
-};
+});
