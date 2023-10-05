@@ -14,11 +14,11 @@ const Template: ComponentStory<typeof Navbar> = () => <Navbar />;
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(undefined)];
+Light.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(undefined)];
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
 
 export const LightAuth = Template.bind({});
 LightAuth.args = {};

@@ -9,7 +9,7 @@ export default {
     component: CartPage,
 } as ComponentMeta<typeof CartPage>;
 
-const Template: ComponentStory<typeof CartPage> = (args) => <CartPage {...args} />;
+const Template: ComponentStory<typeof CartPage> = () => <CartPage />;
 
 export const Light = Template.bind({});
 Light.args = {};

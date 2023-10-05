@@ -6,7 +6,7 @@ import cls from './AppLogo.module.scss';
 
 interface AppLogoProps {
   className?: string;
-  to?: string;
+  to: string;
 }
 
 export const AppLogo = memo((props: AppLogoProps) => {

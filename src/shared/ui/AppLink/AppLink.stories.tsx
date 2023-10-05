@@ -7,9 +7,12 @@ import { AppLink, AppLinkTheme } from './AppLink';
 export default {
     title: 'shared/AppLink',
     component: AppLink,
+    args: {
+        to: '/',
+    },
 } as ComponentMeta<typeof AppLink>;
 
-const Template: ComponentStory<typeof AppLink> = (args) => <AppLink to="/some-path" {...args} />;
+const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args} />;
 
 export const PrimaryLight = Template.bind({});
 PrimaryLight.args = {
