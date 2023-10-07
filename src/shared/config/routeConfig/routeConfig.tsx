@@ -4,6 +4,10 @@ import { CartPage } from 'pages/CartPage';
 import { AboutPage } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 
+type AppRoutesProps = RouteProps & {
+    authOnly?: boolean;
+}
+
 export enum AppRouter {
   MAIN = 'main',
   CART = 'cart',
@@ -18,7 +22,7 @@ export const RoutePath: Record<AppRouter, string> = {
     [AppRouter.NOT_FOUND]: '*',
 };
 
-export const routeConfig: Record<AppRouter, RouteProps> = {
+export const routeConfig: Record<AppRouter, AppRoutesProps> = {
     [AppRouter.MAIN]: {
         path: RoutePath.main,
         element: <MainPage />,
@@ -26,6 +30,7 @@ export const routeConfig: Record<AppRouter, RouteProps> = {
     [AppRouter.CART]: {
         path: RoutePath.cart,
         element: <CartPage />,
+        authOnly: true,
     },
     [AppRouter.ABOUT]: {
         path: RoutePath.about,
