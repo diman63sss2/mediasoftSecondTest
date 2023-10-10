@@ -4,10 +4,11 @@ import { LoginSchema } from 'features/AuthByUsername';
 import {
     AnyAction, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { CombinedState, Dispatch } from 'redux';
+import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
 import { To } from 'history';
 import { NavigateOptions } from 'react-router';
+import { ProductsPageSchema } from 'pages/MainPage';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -15,6 +16,7 @@ export interface StateSchema {
 
   // Асинхронные редюсеры
   loginForm?: LoginSchema;
+  productsPage?: ProductsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

@@ -1,28 +1,20 @@
 {
-  "posts": [
+  "products":[
     {
-      "id": 1,
-      "title": "json-server",
-      "userId": 1
+      "id":1,
+      "title":"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+      "price":109.95,
+      "category":"men's clothing",
+      "image":"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "rate":3.9
     },
     {
-      "id": 2,
-      "title": "json-server",
-      "userId": 2
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "users": [
-    {
-      "id": 1,
-      "username": "admin",
-      "password": "123"
+      "id":2,
+      "title":"Mens Casual Premium Slim Fit T-Shirts ",
+      "price":22.3,
+      "category":"men's clothing",
+      "image":"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      "rate":4.1
     }
   ],
   "profile": { "name": "typicode" }

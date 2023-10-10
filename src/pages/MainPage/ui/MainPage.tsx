@@ -1,24 +1,34 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Product, ProductList } from 'entities/Product';
+import { ProductList } from 'entities/Product';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useSelector } from 'react-redux';
+import { fetchProductsList } from '../model/services/fetchProductsList/fetchProductsList';
+import { getProductsPageError, getProductsPageIsLoading } from '../model/selectors/productsPageSelectors';
+import { getProducts, productsPageReducer } from '../model/slices/productsPageSlice';
 
-const product = {
-    id: 1,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-    price: 109.95,
-    // eslint-disable-next-line max-len
-    description: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    category: "men's clothing",
-    image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-    rate: 3.9,
-} as Product;
+const reducers: ReducersList = {
+    productsPage: productsPageReducer,
+};
 
 const MainPage = () => {
     const { t } = useTranslation('main');
+    const dispatch = useAppDispatch();
+    const products = useSelector(getProducts.selectAll);
+    const isLoading = useSelector(getProductsPageIsLoading);
+    const error = useSelector(getProductsPageError);
+    useInitialEffect(() => {
+        dispatch(fetchProductsList());
+    });
+
     return (
-        <div>
-            <ProductList isLoading products={[product]} />
-        </div>
+        <DynamicModuleLoader reducers={reducers}>
+            <div>
+                <ProductList isLoading={isLoading} products={products} />
+            </div>
+        </DynamicModuleLoader>
     );
 };
 
