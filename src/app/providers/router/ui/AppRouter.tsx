@@ -16,19 +16,17 @@ const AppRouter = () => {
     }), [isAuth]);
 
     return (
-        <div className="container">
-            <Suspense fallback={<PageLoader />}>
-                <Routes>
-                    {routes.map(({ element, path }) => (
-                        <Route
-                            key={path}
-                            element={element}
-                            path={path}
-                        />
-                    ))}
-                </Routes>
-            </Suspense>
-        </div>
+        <Suspense fallback={<PageLoader />}>
+            <Routes>
+                {routes.map(({ element, path }) => (
+                    <Route
+                        key={path}
+                        element={element}
+                        path={path}
+                    />
+                ))}
+            </Routes>
+        </Suspense>
     );
 };
 

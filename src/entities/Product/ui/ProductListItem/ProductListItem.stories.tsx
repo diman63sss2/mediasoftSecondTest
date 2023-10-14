@@ -6,7 +6,7 @@ import { ThemeDecorator } from '../../../../shared/config/storybook/ThemeDecorat
 import { Theme } from '../../../../app/providers/ThemeProvider';
 
 export default {
-    title: 'shared/ProductListItem',
+    title: 'entities/ProductListItem',
     component: ProductListItem,
 } as ComponentMeta<typeof ProductListItem>;
 

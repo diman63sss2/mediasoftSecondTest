@@ -36,16 +36,16 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     if (authData) {
         return (
-            <div data-testid="navbar" className={classNames(cls.Navbar, {}, [className])}>
+            <header data-testid="navbar" className={classNames(cls.Navbar, {}, [className])}>
                 <AppLogo to="/" />
-                <div className={cls.links}>
+                <nav className={cls.links}>
                     <AppLink theme={AppLinkTheme.PRIMARY} to="/">
                         {t('Главная')}
                     </AppLink>
                     <AppLink theme={AppLinkTheme.PRIMARY} to="/about">
                         {t('О сайте')}
                     </AppLink>
-                </div>
+                </nav>
                 <ThemeSwitcher />
                 <LangSwitcher />
                 <Button
@@ -56,21 +56,21 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     {t('Выйти')}
                 </Button>
                 <BasketButton />
-            </div>
+            </header>
         );
     }
 
     return (
-        <div data-testid="navbar" className={classNames(cls.Navbar, {}, [className])}>
+        <header data-testid="navbar" className={classNames(cls.Navbar, {}, [className])}>
             <AppLogo to="/" />
-            <div className={cls.links}>
+            <nav className={cls.links}>
                 <AppLink theme={AppLinkTheme.PRIMARY} to="/">
                     {t('Главная')}
                 </AppLink>
                 <AppLink theme={AppLinkTheme.PRIMARY} to="/about">
                     {t('О сайте')}
                 </AppLink>
-            </div>
+            </nav>
             <ThemeSwitcher />
             <LangSwitcher />
             <Button
@@ -86,6 +86,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     onClose={onCloseModal}
                 />
             )}
-        </div>
+        </header>
     );
 });

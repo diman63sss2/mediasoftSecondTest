@@ -1,0 +1,38 @@
+.ProductPagePagination {
+    display: flex;
+    justify-content: center;
+}
+
+.item {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: var(--primary-color);
+    background: var(--bg-color);
+    cursor: pointer;
+    transition: 0.3s all ease;
+}
+
+.item:last-child {
+    margin-right: 0;
+}
+
+.item:hover {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.item.active {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.item.active:hover {
+    opacity: 1;
+}

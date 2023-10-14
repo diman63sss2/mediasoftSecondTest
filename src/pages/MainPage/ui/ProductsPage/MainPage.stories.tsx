@@ -14,7 +14,13 @@ const Template: ComponentStory<typeof MainPage> = () => <MainPage />;
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({})];
+Light.decorators = [StoreDecorator({
+    productsPage: {
+        page: 1,
+        countPages: 4,
+        limit: 12,
+    },
+})];
 
 export const Dark = Template.bind({});
 Dark.args = {};

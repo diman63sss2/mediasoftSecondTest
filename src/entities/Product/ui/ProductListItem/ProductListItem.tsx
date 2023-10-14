@@ -32,7 +32,7 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
                 </div>
                 <div className={cls.info}>
                     <Text className={cls.title} text={shortTitle(product.title)} />
-                    <Text className={cls.price} text={`${product.category}$`} />
+                    <Text className={cls.price} text={`${product.price}$`} />
                 </div>
             </div>
             <div className={cls.additional}>

@@ -2,7 +2,7 @@ import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolki
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Product } from 'entities/Product';
 import { ProductsPageSchema } from 'pages/MainPage';
-import { fetchProductsList } from '../../model/services/fetchProductsList/fetchProductsList';
+import { fetchProductsList, FetchProductsListResponse } from '../../model/services/fetchProductsList/fetchProductsList';
 
 const productsAdapter = createEntityAdapter<Product>({
     selectId: (product) => product.id,
@@ -19,8 +19,18 @@ const productsPageSlice = createSlice({
         error: undefined,
         ids: [],
         entities: {},
+        page: 1,
+        hasMore: true,
+        countPages: 0,
     }),
-    reducers: {},
+    reducers: {
+        setPage: (state, action: PayloadAction<number>) => {
+            state.page = action.payload;
+        },
+        initState: (state) => {
+            state.limit = 12;
+        },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchProductsList.pending, (state) => {
@@ -29,10 +39,11 @@ const productsPageSlice = createSlice({
             })
             .addCase(fetchProductsList.fulfilled, (
                 state,
-                action: PayloadAction<Product[]>,
+                action: PayloadAction<FetchProductsListResponse>,
             ) => {
                 state.isLoading = false;
-                productsAdapter.setAll(state, action.payload);
+                productsAdapter.setAll(state, action.payload.products);
+                state.countPages = action.payload.count;
             })
             .addCase(fetchProductsList.rejected, (state, action) => {
                 state.isLoading = false;
