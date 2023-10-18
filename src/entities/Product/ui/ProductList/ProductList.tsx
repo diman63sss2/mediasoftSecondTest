@@ -31,7 +31,7 @@ export const ProductList = memo((props: ProductListProps) => {
     }
 
     const renderProduct = (product: Product) => (
-        <ProductListItem product={product} />
+        <ProductListItem product={product} key={product.id} />
     );
 
     return (

@@ -19,7 +19,6 @@ export const fetchProductsList = createAsyncThunk<
   >(
       'productsPage/fetchProductsList',
       async (props, thunkApi) => {
-          console.log('fetchProductsList');
           const { extra, rejectWithValue, getState } = thunkApi;
           const { page = 1 } = props;
           const limit = getProductsPageLimit(getState());

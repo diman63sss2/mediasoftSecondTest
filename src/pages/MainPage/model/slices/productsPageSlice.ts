@@ -22,6 +22,7 @@ const productsPageSlice = createSlice({
         page: 1,
         hasMore: true,
         countPages: 0,
+        _inited: false,
     }),
     reducers: {
         setPage: (state, action: PayloadAction<number>) => {
@@ -29,6 +30,7 @@ const productsPageSlice = createSlice({
         },
         initState: (state) => {
             state.limit = 12;
+            state._inited = true;
         },
     },
     extraReducers: (builder) => {

@@ -7,11 +7,13 @@ import { useSelector } from 'react-redux';
 import { Page } from 'shared/ui/Page/Page';
 import { ProductPagePagination } from 'pages/MainPage/ui/ProductsPagePagination/ProductPagePagination';
 import { useTranslation } from 'react-i18next';
+import { initProductsPage } from '../../model/services/initProductsPage/initProductsPage';
 import { fetchProductsList } from '../../model/services/fetchProductsList/fetchProductsList';
 import {
     getProductsPageCount,
     getProductsPageError,
-    getProductsPageIsLoading, getProductsPageLimit,
+    getProductsPageIsLoading,
+    getProductsPageLimit,
     getProductsPageNum,
 } from '../../model/selectors/productsPageSelectors';
 import { getProducts, productsPageActions, productsPageReducer } from '../../model/slices/productsPageSlice';
@@ -32,10 +34,7 @@ const MainPage = () => {
 
     const error = useSelector(getProductsPageError);
     useInitialEffect(() => {
-        dispatch(productsPageActions.initState());
-        dispatch(fetchProductsList({
-            page: 1,
-        }));
+        dispatch(initProductsPage());
     });
 
     const loadPage = useCallback((page: number) => {
@@ -54,7 +53,7 @@ const MainPage = () => {
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page>
                 <ProductList isLoading={isLoading} products={products} />
                 { productsLimit < productsCount

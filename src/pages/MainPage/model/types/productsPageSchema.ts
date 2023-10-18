@@ -9,4 +9,6 @@ export interface ProductsPageSchema extends EntityState<Product>{
   limit?: number;
   hasMore: boolean;
   countPages: number;
+
+  _inited: boolean;
 }

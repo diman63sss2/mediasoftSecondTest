@@ -4,8 +4,8 @@ export const getProductsPageIsLoading = (state: StateSchema) => state.productsPa
 export const getProductsPageError = (state: StateSchema) => state.productsPage?.error;
 export const getProductsPageNum = (state: StateSchema) => state.productsPage?.page || 0;
 export const getProductsPageLimit = (state: StateSchema) => state.productsPage?.limit || 12;
+export const getProductsPageCount = (state: StateSchema) => state.productsPage?.countPages || 0;
+export const getProductsPageInited = (state: StateSchema) => state.productsPage?._inited;
 
 // for infinity pagination
 export const getProductsPageHasMore = (state: StateSchema) => state.productsPage?.hasMore;
-
-export const getProductsPageCount = (state: StateSchema) => state.productsPage?.countPages || 0;
