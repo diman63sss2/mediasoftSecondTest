@@ -13,15 +13,11 @@ export const initProductsPage = createAsyncThunk<
     async (_, thunkApi) => {
         const { getState, dispatch } = thunkApi;
         const inited = getProductsPageInited(getState());
-        console.log(inited);
-        console.log(getState());
         if (!inited) {
             dispatch(productsPageActions.initState());
             dispatch(fetchProductsList({
                 page: 1,
             }));
-            console.log('!inited');
-            console.log(getState());
         }
     },
 );
