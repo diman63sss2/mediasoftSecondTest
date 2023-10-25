@@ -1,4 +1,6 @@
 {
   "Корзина": "Корзина",
-  "Ошибка": "Ошибка"
+  "Ошибка": "Ошибка",
+  "ProductsCategory": "ProductsCategory",
+  "ProductsCategory[category as keyof typeof ProductsCategory]": "ProductsCategory[category as keyof typeof ProductsCategory]"
 }

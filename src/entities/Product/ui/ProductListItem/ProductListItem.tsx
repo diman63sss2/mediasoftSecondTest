@@ -2,18 +2,25 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { Text } from 'shared/ui/Text/Text';
+import { Button } from 'shared/ui/Button/Button';
+import { AddUserProductProps } from 'entities/User/model/services/addUserProduct';
+import { Loader, ThemeLoader } from 'shared/ui/Loader/Loader';
 import cls from './ProductListItem.module.scss';
 import { Product } from '../../model/types/product';
 
 interface ProductListItemProps {
   className?: string;
   product: Product;
+  addProduct: (props: AddUserProductProps) => void;
+  isAuth: boolean;
 }
 
 export const ProductListItem = memo((props: ProductListItemProps) => {
     const {
         className,
         product,
+        addProduct,
+        isAuth,
     } = props;
     const { t } = useTranslation();
 
@@ -23,6 +30,7 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
         }
         return `${title}...`;
     };
+
     return (
         <li className={classNames(cls.ProductListItem, {}, [className])}>
             <div className={cls.content}>
@@ -36,17 +44,21 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
                 </div>
             </div>
             <div className={cls.additional}>
-                {/* {user.isAuth
-                    ? (
-                        <button className={cls.button} onClick={() => addProduct()}>
-                            Добавить в корзину
-                        </button>
-                    )
+                {isAuth && !product.isLoading ? (
+                    <Button
+                        className={cls.Button}
+                        onClick={() => addProduct({ id: product.id })}
+                    >
+                        {t('Добавить в корзину')}
+                    </Button>
+                )
                     : (
-                        <button className={cl.button} disabled>
-                            Добавить в корзину
-                        </button>
-                    )} */}
+                        <Button
+                            className={cls.Button}
+                        >
+                            {t('Загрузка...')}
+                        </Button>
+                    )}
             </div>
         </li>
     );

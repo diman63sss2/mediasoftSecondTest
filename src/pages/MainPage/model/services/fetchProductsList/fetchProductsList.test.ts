@@ -9,6 +9,7 @@ const products = [
         category: "men's clothing",
         image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
         rate: 3.9,
+        isLoading: false,
     },
     {
         id: 2,
@@ -17,6 +18,7 @@ const products = [
         category: "men's clothing",
         image: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
         rate: 4.1,
+        isLoading: false,
     },
     {
         id: 3,
@@ -25,6 +27,7 @@ const products = [
         category: "men's clothing",
         image: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
         rate: 4.1,
+        isLoading: false,
     },
     {
         id: 4,
@@ -33,6 +36,7 @@ const products = [
         category: "men's clothing",
         image: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
         rate: 4.1,
+        isLoading: false,
     },
 ];
 

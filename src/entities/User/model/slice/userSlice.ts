@@ -1,8 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
-import { UserSchema, User } from '../types/user';
+import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+import { fetchUserCart } from 'entities/User/model/services/fetchUserCart';
+import { addUserProduct } from 'entities/User/model/services/addUserProduct';
+import { productsPageActions } from 'pages/MainPage/model/slices/productsPageSlice';
+import { UserSchema, User, UserProduct } from '../types/user';
 
-const initialState: UserSchema = {};
+const initialState: UserSchema = {
+    _inited: false,
+    products: [],
+};
 
 export const userSlice = createSlice({
     name: 'user',
@@ -16,11 +23,50 @@ export const userSlice = createSlice({
             if (user) {
                 state.authData = JSON.parse(user);
             }
+            state._inited = true;
         },
         logout: (state) => {
             state.authData = undefined;
             localStorage.removeItem(USER_LOCALSTORAGE_KEY);
         },
+        updateUserProducts: (state, action: PayloadAction<UserProduct>) => {
+            const index = state.products.findIndex((item) => item.id === action.payload.id);
+            if (index !== -1) {
+                // Объект с указанным id найден, заменяем его
+                state.products[index] = action.payload;
+            } else {
+                // Объект с указанным id не найден, добавляем новый объект в массив
+                state.products.push(action.payload);
+            }
+        },
+        updateUserProductsCount: (state) => {
+            state.productsCount = state.products.reduce((total, product) => total + product.count, 0);
+        },
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchUserCart.pending, (state) => {
+
+            })
+            .addCase(fetchUserCart.fulfilled, (state, action: PayloadAction<UserProduct[]>) => {
+                state.products = action.payload;
+                state.productsCount = action.payload.reduce((total, product) => total + product.count, 0);
+            })
+            .addCase(fetchUserCart.rejected, (state, action) => {
+
+            })
+            .addCase(addUserProduct.pending, (state) => {
+                console.log('addUserProduct.pending');
+            })
+            .addCase(addUserProduct.fulfilled, (state, action: PayloadAction<UserProduct>) => {
+                console.log('addUserProduct.fulfilled');
+                console.log(action.payload);
+
+                console.log('end');
+            })
+            .addCase(addUserProduct.rejected, (state, action) => {
+                console.log('addUserProduct.rejected');
+            });
     },
 });
 

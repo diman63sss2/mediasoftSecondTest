@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { AppLogo } from 'shared/ui/AppLogo/AppLogo';
-import { BasketButton } from 'shared/ui/BasketButton/BasketButton';
+import { BasketButton } from 'widgets/BasketButton/BasketButton';
 import { useTranslation } from 'react-i18next';
 import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';

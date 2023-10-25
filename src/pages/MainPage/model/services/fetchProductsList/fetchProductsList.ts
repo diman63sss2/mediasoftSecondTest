@@ -1,10 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Product } from 'entities/Product';
-import { getProductsPageLimit } from '../../selectors/productsPageSelectors';
+import { Product, ProductsCategory } from 'entities/Product';
+import { useSelector } from 'react-redux';
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
+import {
+    getProductsPageCategory,
+    getProductsPageLimit,
+    getProductsPageNum,
+    getProductsPageSort,
+} from '../../selectors/productsPageSelectors';
 
 interface FetchProductsListProps {
-  page?: number;
+
 }
 
 export interface FetchProductsListResponse {
@@ -20,13 +27,23 @@ export const fetchProductsList = createAsyncThunk<
       'productsPage/fetchProductsList',
       async (props, thunkApi) => {
           const { extra, rejectWithValue, getState } = thunkApi;
-          const { page = 1 } = props;
+          const sort = getProductsPageSort(getState());
           const limit = getProductsPageLimit(getState());
+          const page = getProductsPageNum(getState());
+          const category = getProductsPageCategory(getState());
+
           try {
+              addQueryParams({
+                  sort,
+                  page,
+                  category,
+              });
               const response = await extra.api.get<Product[]>('/products', {
                   params: {
                       _limit: limit,
                       _page: page,
+                      _sort: sort,
+                      category: category === ProductsCategory.ALL ? undefined : category,
                   },
               });
 
@@ -37,8 +54,13 @@ export const fetchProductsList = createAsyncThunk<
               const totalCountHeader = response.headers['x-total-count'];
               const totalCount = parseInt(totalCountHeader, 10);
 
+              const products = response.data.map((product) => ({
+                  ...product,
+                  isLoading: false,
+              }));
+
               return {
-                  products: response.data,
+                  products,
                   count: totalCount,
               };
           } catch (e) {

@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Product } from 'entities/Product';
+import { Product, ProductsCategory, ProductsSortField } from 'entities/Product';
 import { ProductsPageSchema } from 'pages/MainPage';
 import { fetchProductsList, FetchProductsListResponse } from '../../model/services/fetchProductsList/fetchProductsList';
 
@@ -23,10 +23,25 @@ const productsPageSlice = createSlice({
         hasMore: true,
         countPages: 0,
         _inited: false,
+        sort: ProductsSortField.TITLE,
+        category: ProductsCategory.ALL,
     }),
     reducers: {
         setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
+        },
+        setSort: (state, action: PayloadAction<ProductsSortField>) => {
+            state.sort = action.payload;
+        },
+        setCategory: (state, action: PayloadAction<ProductsCategory>) => {
+            state.category = action.payload;
+        },
+        setProductIsLoading: (state, action: PayloadAction<{id: number, isLoading: boolean}>) => {
+            const { id, isLoading } = action.payload;
+            if (state.entities !== undefined && state.entities[id] !== undefined) {
+                state.entities[id]!.isLoading = isLoading;
+            }
+            console.log(`setProductIsLoading ${isLoading}`);
         },
         initState: (state) => {
             state.limit = 12;

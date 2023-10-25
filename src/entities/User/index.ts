@@ -1,5 +1,7 @@
 export {
     getUserAuthData,
+    getUserInited,
+    getUserProductsCount,
 } from './model/selectors/getUserAuthData/getUserAuthData';
 
 export {

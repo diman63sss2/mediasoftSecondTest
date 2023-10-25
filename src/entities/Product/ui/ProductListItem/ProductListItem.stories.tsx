@@ -20,6 +20,7 @@ const product = {
     category: "men's clothing",
     image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
     rate: 3.9,
+    isLoading: false,
 } as Product;
 
 export const Normal = Template.bind({});

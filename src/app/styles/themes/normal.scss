@@ -4,7 +4,7 @@
     --primary-color: #000;
     --secondary-color: #362db0;
     --inverted-primary-color: white;
-    --inverted-secondary-color: #00c500;
+    --inverted-secondary-color: #d64933;
 
     /* input variables */
     --input-color: var(--primary-color);
@@ -23,4 +23,7 @@
     // skeleton
     --skeleton-color: #fff;
     --skeleton-shadow: rgba(0 0 0 / 20%);
+
+    // card variables
+    --card-bg: var(--secondary-color);
 }

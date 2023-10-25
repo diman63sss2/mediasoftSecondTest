@@ -1,18 +1,34 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense, useCallback, useEffect } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
-import { useDispatch } from 'react-redux';
-import { userActions } from 'entities/User';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserAuthData, getUserInited, userActions } from 'entities/User';
 import { useNavigate } from 'react-router-dom';
+import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+import { fetchUserCart } from 'entities/User/model/services/fetchUserCart';
+import { getLoginUsername } from 'features/AuthByUsername/model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginPassword } from 'features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 function App() {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const inited = useSelector(getUserInited);
+    const isAuth = useSelector(getUserAuthData);
 
     useEffect(() => {
-        dispatch((userActions.initAuthData()));
-    }, [dispatch]);
+        if (!inited) {
+            dispatch(userActions.initAuthData());
+        }
+    }, [dispatch, inited]);
+
+    useEffect(() => {
+        if (isAuth) {
+            dispatch(fetchUserCart());
+        }
+    }, [dispatch, isAuth]);
+
     return (
         <div className={classNames('app', { special: true })}>
             <Suspense fallback="">

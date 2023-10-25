@@ -23,6 +23,7 @@
 
 .image {
     width: auto;
+    max-width: 90%;
     height: 100%;
     object-fit: contain;
     transition: 0.3s transform ease;
@@ -53,6 +54,7 @@
     color: var(--card-color);
     margin-bottom: 10px;
     font-size: 20px;
+    max-width: 90%;
 }
 
 .title p {
@@ -75,4 +77,16 @@
 
 .price p {
     color: var(--card-sub-color);
+}
+
+.additional .Button {
+    width: 100%;
+    transition: var(--transition-time-switcher) all ease;
+    color: var(--card-color);
+    border-color: var(--card-color);
+}
+
+.Button:hover {
+    background: var(--card-color);
+    color: var(--card-bg-color);
 }

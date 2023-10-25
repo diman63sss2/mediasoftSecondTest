@@ -8,7 +8,6 @@ import { ErrorBoundary } from './app/providers/ErrorBoundary';
 import { StoreProvider } from './app/providers/StoreProvider';
 
 render(
-
     <BrowserRouter>
         <StoreProvider>
             <ErrorBoundary>

@@ -1,4 +1,4 @@
-import { Product } from 'entities/Product';
+import { Product, ProductsCategory, ProductsSortField } from 'entities/Product';
 import { EntityState } from '@reduxjs/toolkit';
 
 export interface ProductsPageSchema extends EntityState<Product>{
@@ -9,6 +9,10 @@ export interface ProductsPageSchema extends EntityState<Product>{
   limit?: number;
   hasMore: boolean;
   countPages: number;
+
+  // filters
+  sort?: ProductsSortField;
+  category: ProductsCategory;
 
   _inited: boolean;
 }

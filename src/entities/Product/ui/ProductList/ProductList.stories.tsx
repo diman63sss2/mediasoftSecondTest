@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ProductList } from './ProductList';
 import { ThemeDecorator } from '../../../../shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '../../../../app/providers/ThemeProvider';
@@ -20,6 +21,7 @@ const products = [{
     category: "men's clothing",
     image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
     rate: 3.9,
+    isLoading: false,
 },
 {
     id: 2,
@@ -29,6 +31,7 @@ const products = [{
     category: "men's clothing",
     image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
     rate: 3.9,
+    isLoading: false,
 },
 {
     id: 3,
@@ -38,30 +41,31 @@ const products = [{
     category: "men's clothing",
     image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
     rate: 3.9,
+    isLoading: false,
 }];
 
 export const Normal = Template.bind({});
 Normal.args = {
     products,
 };
-Normal.decorators = [ThemeDecorator(Theme.LIGHT)];
+Normal.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({})];
 
 export const Dark = Template.bind({});
 Dark.args = {
     products,
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
 
 export const LoadingNormal = Template.bind({});
 LoadingNormal.args = {
     products,
     isLoading: true,
 };
-LoadingNormal.decorators = [ThemeDecorator(Theme.LIGHT)];
+LoadingNormal.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({})];
 
 export const LoadingDark = Template.bind({});
 LoadingDark.args = {
     products,
     isLoading: true,
 };
-LoadingDark.decorators = [ThemeDecorator(Theme.DARK)];
+LoadingDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
