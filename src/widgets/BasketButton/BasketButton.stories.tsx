@@ -17,15 +17,27 @@ Light.args = {
 
 };
 Light.decorators = [StoreDecorator({
-    user: {
-        productsCount: 10,
+    userReducer: {
+        authData: {
+            username: 'name',
+            id: 1,
+        },
+        products: [],
+        productsCount: 3,
+        _inited: true,
     },
 })];
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    user: {
-        productsCount: 10,
+    userReducer: {
+        authData: {
+            username: 'name',
+            id: 1,
+        },
+        products: [],
+        productsCount: 3,
+        _inited: true,
     },
 })];

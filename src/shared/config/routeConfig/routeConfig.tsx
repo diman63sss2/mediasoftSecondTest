@@ -1,5 +1,5 @@
 import { RouteProps } from 'react-router-dom';
-import { MainPage } from 'pages/MainPage';
+import { ProductsPage } from 'pages/ProductsPage';
 import { CartPage } from 'pages/CartPage';
 import { AboutPage } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
@@ -9,23 +9,23 @@ type AppRoutesProps = RouteProps & {
 }
 
 export enum AppRouter {
-  MAIN = 'main',
+  PRODUCTS = 'products',
   CART = 'cart',
   ABOUT = 'about',
   NOT_FOUND = 'not_found',
 }
 
 export const RoutePath: Record<AppRouter, string> = {
-    [AppRouter.MAIN]: '/',
+    [AppRouter.PRODUCTS]: '/',
     [AppRouter.CART]: '/cart',
     [AppRouter.ABOUT]: '/about',
     [AppRouter.NOT_FOUND]: '*',
 };
 
 export const routeConfig: Record<AppRouter, AppRoutesProps> = {
-    [AppRouter.MAIN]: {
-        path: RoutePath.main,
-        element: <MainPage />,
+    [AppRouter.PRODUCTS]: {
+        path: RoutePath.products,
+        element: <ProductsPage />,
     },
     [AppRouter.CART]: {
         path: RoutePath.cart,

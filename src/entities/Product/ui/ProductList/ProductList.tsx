@@ -5,8 +5,8 @@ import { ProductListItemSkeleton } from 'entities/Product/ui/ProductListItem/Pro
 import { Text } from 'shared/ui/Text/Text';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
-import { addUserProduct, AddUserProductProps } from 'entities/User/model/services/addUserProduct';
-import { productsPageActions } from 'pages/MainPage/model/slices/productsPageSlice';
+import { setProductIsLoading } from 'pages/ProductsPage/model/actions/setProductIsLoading';
+import { addUserProduct, AddUserProductProps } from 'entities/User/model/actions/addUserProduct';
 import { Product } from '../../model/types/product';
 import cls from './ProductList.module.scss';
 import { ProductListItem } from '../ProductListItem/ProductListItem';
@@ -28,10 +28,11 @@ export const ProductList = memo((props: ProductListProps) => {
     const dispatch = useDispatch();
 
     const addProduct = useCallback((productUserProps: AddUserProductProps) => {
-        dispatch(productsPageActions.setProductIsLoading({
+        dispatch(setProductIsLoading({
             id: productUserProps.id,
             isLoading: true,
         }));
+
         dispatch(addUserProduct(productUserProps));
         console.log('add Product');
     }, [dispatch]);

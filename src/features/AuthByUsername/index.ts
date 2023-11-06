@@ -1,2 +1,13 @@
+import authByUsernameReducer from './model/reducers/authByUsername';
+
 export { LoginModal } from './ui/LoginModal/LoginModal';
-export { LoginSchema } from './model/types/loginSchema';
+export {
+    authByUsernameReducer,
+};
+
+export {
+    getLoginError,
+    getLoginIsLoading,
+    getLoginPassword,
+    getLoginUsername,
+} from './model/selectors/authByUsernameSelectors';

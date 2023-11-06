@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { Text } from 'shared/ui/Text/Text';
 import { Button } from 'shared/ui/Button/Button';
-import { AddUserProductProps } from 'entities/User/model/services/addUserProduct';
 import { Loader, ThemeLoader } from 'shared/ui/Loader/Loader';
+import { AddUserProductProps } from 'entities/User/model/actions/addUserProduct';
 import cls from './ProductListItem.module.scss';
 import { Product } from '../../model/types/product';
 

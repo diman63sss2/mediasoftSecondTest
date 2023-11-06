@@ -9,7 +9,7 @@ import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from 'entities/User';
+import { getUserAuthData, userLogout } from 'entities/User';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -19,7 +19,7 @@ interface NavbarProps {
 export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
-    const authData = useSelector(getUserAuthData);
+    const isAuth = useSelector(getUserAuthData);
     const dispatch = useDispatch();
 
     const onCloseModal = useCallback(() => {
@@ -31,10 +31,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     }, []);
 
     const onLogout = useCallback(() => {
-        dispatch(userActions.logout());
+        dispatch(userLogout());
     }, [dispatch]);
 
-    if (authData) {
+    if (isAuth.id !== null) {
         return (
             <header data-testid="navbar" className={classNames(cls.Navbar, {}, [className])}>
                 <AppLogo to="/" />

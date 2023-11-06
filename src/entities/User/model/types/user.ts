@@ -4,13 +4,23 @@ export interface UserProduct {
 }
 
 export interface User {
-  id: string;
+  id: number | null;
   username: string;
 }
 
 export interface UserSchema {
-  authData?: User;
+  authData: User;
   products: UserProduct[];
-  productsCount?: number;
+  productsCount: number;
   _inited: boolean;
 }
+
+export const initialState: UserSchema = {
+    authData: {
+        id: null,
+        username: '',
+    } as User,
+    products: [],
+    productsCount: 0,
+    _inited: false,
+};

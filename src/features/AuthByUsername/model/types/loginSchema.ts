@@ -4,3 +4,9 @@ export interface LoginSchema {
   isLoading: boolean;
   error?: string;
 }
+
+export const initialStateLogin: LoginSchema = {
+    username: '',
+    password: '',
+    isLoading: false,
+};

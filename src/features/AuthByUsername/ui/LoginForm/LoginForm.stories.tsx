@@ -18,7 +18,7 @@ const Template: ComponentStory<typeof LoginForm> = () => <LoginForm onSuccess={(
 export const Primary = Template.bind({});
 Primary.args = {};
 Primary.decorators = [StoreDecorator({
-    loginForm: {
+    authByUsernameReducer: {
         username: 'admin',
         password: 'asd',
     },
@@ -27,7 +27,7 @@ Primary.decorators = [StoreDecorator({
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [StoreDecorator({
-    loginForm: {
+    authByUsernameReducer: {
         username: 'admin',
         password: 'asd',
     },
@@ -36,7 +36,7 @@ Dark.decorators = [StoreDecorator({
 export const withError = Template.bind({});
 withError.args = {};
 withError.decorators = [StoreDecorator({
-    loginForm: {
+    authByUsernameReducer: {
         username: 'admin',
         password: 'asd',
         error: 'error',
@@ -46,7 +46,7 @@ withError.decorators = [StoreDecorator({
 export const Loading = Template.bind({});
 Loading.args = {};
 Loading.decorators = [StoreDecorator({
-    loginForm: {
+    authByUsernameReducer: {
         username: 'admin',
         password: 'asd',
         isLoading: true,

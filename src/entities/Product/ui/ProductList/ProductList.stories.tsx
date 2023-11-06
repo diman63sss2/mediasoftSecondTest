@@ -7,7 +7,7 @@ import { Theme } from '../../../../app/providers/ThemeProvider';
 import { Product } from '../../model/types/product';
 
 export default {
-    title: 'entities/ProductList',
+    title: 'entities/Product/ProductList',
     component: ProductList,
 } as ComponentMeta<typeof ProductList>;
 
