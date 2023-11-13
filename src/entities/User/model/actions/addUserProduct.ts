@@ -23,7 +23,7 @@ export const addUserProduct = (
     const productFinded = productsCart.find((product) => product.id === id);
     if (productFinded) {
         try {
-            const response = await $api().put<UserProduct>(`/cart/${id}`, {
+            const response = await $api.put<UserProduct>(`/cart/${id}`, {
                 id,
                 count: productFinded.count + 1,
             });

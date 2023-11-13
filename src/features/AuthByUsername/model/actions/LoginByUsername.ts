@@ -20,7 +20,7 @@ export const loginByUsername = (
         type: LOGIN_BY_USER_NAME_REQUEST,
     });
     try {
-        const response = await $api().post<User>('/login', authData);
+        const response = await $api.post<User>('/login', authData);
         if (!response.data) {
             throw new Error();
         }

@@ -5,6 +5,8 @@ import { Text } from 'shared/ui/Text/Text';
 import { Button } from 'shared/ui/Button/Button';
 import { Loader, ThemeLoader } from 'shared/ui/Loader/Loader';
 import { AddUserProductProps } from 'entities/User/model/actions/addUserProduct';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { getRouteProductPage } from 'shared/const/router';
 import cls from './ProductListItem.module.scss';
 import { Product } from '../../model/types/product';
 
@@ -30,7 +32,7 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
         }
         return `${title}...`;
     };
-
+    console.log(isAuth);
     return (
         <li className={classNames(cls.ProductListItem, {}, [className])}>
             <div className={cls.content}>
@@ -44,6 +46,12 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
                 </div>
             </div>
             <div className={cls.additional}>
+                <AppLink
+                    className={cls.Button}
+                    to={getRouteProductPage((String(product.id)))}
+                >
+                    {t('Подробнее')}
+                </AppLink>
                 {isAuth && !product.isLoading ? (
                     <Button
                         className={cls.Button}
@@ -51,14 +59,11 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
                     >
                         {t('Добавить в корзину')}
                     </Button>
-                )
-                    : (
-                        <Button
-                            className={cls.Button}
-                        >
-                            {t('Загрузка...')}
-                        </Button>
-                    )}
+                ) : (
+                    isAuth && (
+                        <Button className={cls.Button}>{t('Загрузка...')}</Button>
+                    )
+                )}
             </div>
         </li>
     );

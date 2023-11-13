@@ -5,8 +5,11 @@ import {
     SET_USER_PASSWORD,
 } from '../../model/types/loginActionTypes';
 
-// eslint-disable-next-line default-param-last
-const authByUsernameReducer = (state: LoginSchema = initialStateLogin, action: AuthByUsernameActionTypes) => {
+const authByUsernameReducer = (
+    // eslint-disable-next-line default-param-last
+    state: LoginSchema = initialStateLogin,
+    action: AuthByUsernameActionTypes,
+) => {
     switch (action.type) {
     case SET_USER_NAME:
         return {

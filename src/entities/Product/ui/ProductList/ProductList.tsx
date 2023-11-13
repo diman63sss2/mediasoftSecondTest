@@ -47,7 +47,7 @@ export const ProductList = memo((props: ProductListProps) => {
     }
 
     const renderProduct = (product: Product) => (
-        <ProductListItem isAuth={isAuth !== undefined} addProduct={addProduct} product={product} key={product.id} />
+        <ProductListItem isAuth={isAuth.id !== null} addProduct={addProduct} product={product} key={product.id} />
     );
 
     return (

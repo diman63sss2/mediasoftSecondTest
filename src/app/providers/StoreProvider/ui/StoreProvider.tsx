@@ -16,9 +16,11 @@ export const StoreProvider = (props: StoreProviderProps) => {
         initialState,
     } = props;
 
+    const verifiedInitialState: RootState | undefined = initialState as RootState | undefined;
+
     const store = createStore(
         rootReducer,
-        initialState as StateSchema,
+        verifiedInitialState,
         applyMiddleware(thunk),
     );
 

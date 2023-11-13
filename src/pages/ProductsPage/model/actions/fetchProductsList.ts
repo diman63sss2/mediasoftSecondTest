@@ -42,7 +42,7 @@ export const fetchProductsList = () => async (
             page,
             category,
         });
-        const response = await $api().get<Product[]>('/products', {
+        const response = await $api.get<Product[]>('/products', {
             params: {
                 _limit: limit,
                 _page: page,

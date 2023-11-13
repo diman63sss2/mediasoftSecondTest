@@ -5,7 +5,7 @@ import { FETCH_USER_CART_SUCCESS, UserActionTypes } from '../types/userActionTyp
 
 export const fetchUserCart = () => async (dispatch: Dispatch<UserActionTypes>) => {
     try {
-        const response = await $api().get<UserProduct[]>('/cart');
+        const response = await $api.get<UserProduct[]>('/cart');
         if (!response.data) {
             throw new Error();
         }

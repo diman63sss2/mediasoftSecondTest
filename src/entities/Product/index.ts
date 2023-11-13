@@ -1,3 +1,5 @@
+import productDetailsReducer from './model/reducers/productDetails';
+
 export {
     ProductsCategory,
     ProductsSortField,
@@ -6,3 +8,7 @@ export {
 
 export { ProductList } from './ui/ProductList/ProductList';
 export { ProductsSortSelector } from './ui/ProductsSortSelector/ProductsSortSelector';
+
+export {
+    productDetailsReducer,
+};
