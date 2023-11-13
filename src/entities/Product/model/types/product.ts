@@ -13,6 +13,7 @@ export enum ProductsCategory {
 
 export interface Product {
   id: number;
+  description: string;
   title: string;
   image: string;
   category: string;

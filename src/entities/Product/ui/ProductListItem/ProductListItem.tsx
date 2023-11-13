@@ -4,9 +4,11 @@ import { memo } from 'react';
 import { Text } from 'shared/ui/Text/Text';
 import { Button } from 'shared/ui/Button/Button';
 import { AddUserProductProps } from 'entities/User/model/services/addUserProduct';
-import { Loader, ThemeLoader } from 'shared/ui/Loader/Loader';
-import cls from './ProductListItem.module.scss';
+import { useNavigate } from 'react-router-dom';
+import { getRouteProductPage } from 'shared/const/router';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Product } from '../../model/types/product';
+import cls from './ProductListItem.module.scss';
 
 interface ProductListItemProps {
   className?: string;
@@ -23,6 +25,7 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
         isAuth,
     } = props;
     const { t } = useTranslation();
+    const navigate = useNavigate();
 
     const shortTitle = (title: string) => {
         if (title.length > 40) {
@@ -44,6 +47,12 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
                 </div>
             </div>
             <div className={cls.additional}>
+                <AppLink
+                    className={cls.Button}
+                    to={getRouteProductPage((String(product.id)))}
+                >
+                    {t('Подробнее')}
+                </AppLink>
                 {isAuth && !product.isLoading ? (
                     <Button
                         className={cls.Button}
@@ -51,14 +60,9 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
                     >
                         {t('Добавить в корзину')}
                     </Button>
-                )
-                    : (
-                        <Button
-                            className={cls.Button}
-                        >
-                            {t('Загрузка...')}
-                        </Button>
-                    )}
+                ) : isAuth ? (
+                    <Button className={cls.Button}>{t('Загрузка...')}</Button>
+                ) : null}
             </div>
         </li>
     );

@@ -2,3 +2,4 @@ export { Product, ProductsSortField, ProductsCategory } from './model/types/prod
 
 export { ProductList } from './ui/ProductList/ProductList';
 export { ProductsSortSelector } from './ui/ProductsSortSelector/ProductsSortSelector';
+export { ProductDetailsSchema } from './model/types/productDetailsSchema';

@@ -10,6 +10,7 @@ import { To } from 'history';
 import { NavigateOptions } from 'react-router';
 import { ProductsPageSchema } from 'pages/MainPage';
 import { UISchema } from 'features/UI';
+import { ProductDetailsSchema } from 'entities/Product';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -19,6 +20,7 @@ export interface StateSchema {
   // Асинхронные редюсеры
   loginForm?: LoginSchema;
   productsPage?: ProductsPageSchema;
+  productDetails?: ProductDetailsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

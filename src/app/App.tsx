@@ -24,6 +24,8 @@ function App() {
     }, [dispatch, inited]);
 
     useEffect(() => {
+        console.log('useEffect in APP with isAuth');
+        console.log(isAuth);
         if (isAuth) {
             dispatch(fetchUserCart());
         }
