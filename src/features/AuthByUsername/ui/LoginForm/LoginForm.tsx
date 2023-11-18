@@ -4,9 +4,11 @@ import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
+import { useForm, Controller } from 'react-hook-form';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { InputController } from 'shared/ui/InputController/InputController';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -27,60 +29,77 @@ const initialReducers: ReducersList = {
 const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    const username = useSelector(getLoginUsername);
-    const password = useSelector(getLoginPassword);
     const isLoading = useSelector(getLoginIsLoading);
     const error = useSelector(getLoginError);
 
-    const onChangeUsername = useCallback((value: string) => {
-        dispatch(loginActions.setUsername(value));
-    }, [dispatch]);
+    const { handleSubmit, control } = useForm();
 
-    const onChangePassword = useCallback((value: string) => {
-        dispatch(loginActions.setPassword(value));
-    }, [dispatch]);
-
-    const onLoginClick = useCallback(async () => {
-        const result = await dispatch(loginByUsername({ username, password }));
+    const onSubmit = useCallback(async (data) => {
+        const result = await dispatch(loginByUsername(data));
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess();
         }
-    }, [onSuccess, dispatch, password, username]);
+    }, [onSuccess, dispatch]);
 
+    /* eslint-disable */
     return (
-        <DynamicModuleLoader
-            removeAfterUnmount
-            reducers={initialReducers}
-        >
-            <div className={classNames(cls.LoginForm, {}, [className])}>
-                <Text title={t('Форма авторизации')} />
-                {error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />}
-                <Input
-                    id="LoginForm-Login"
-                    autofocus
-                    type="text"
-                    className={cls.input}
-                    placeholder={t('Login')}
-                    onChange={onChangeUsername}
-                    value={username}
-                />
-                <Input
-                    id="LoginForm-Password"
-                    type="text"
-                    className={cls.input}
-                    placeholder={t('Password')}
-                    onChange={onChangePassword}
-                    value={password}
-                />
-                <Button
-                    theme={ThemeButton.OUTLINE}
-                    className={cls.loginBtn}
-                    onClick={onLoginClick}
-                    disabled={isLoading}
-                >
-                    {t('Войти')}
-                </Button>
-            </div>
+        <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className={classNames(cls.LoginForm, {}, [className])}>
+                    <Text title={t('Форма авторизации')} />
+                    {error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />}
+                    <Controller
+                      name="username"
+                      control={control}
+                      defaultValue=""
+                      rules={{
+                          required: 'This field is required',
+                          pattern: {
+                              value: /^[a-zA-Z0-9]+$/,
+                              message: 'Only alphanumeric characters are allowed',
+                          },
+                      }}
+                      render={({ fieldState }) => (
+                        <>
+                            <InputController
+                              control={control}
+                              name="username"
+                              placeholder={t('Login')}
+                              id="LoginForm-Login"
+                            />
+                            <span>{fieldState?.error?.message}</span>
+                        </>
+                      )}
+                    />
+                    <Controller
+                      name="password"
+                      control={control}
+                      defaultValue=""
+                      rules={{
+                          required: 'This field is required',
+                          minLength: {
+                              value: 3,
+                              message: 'Password must have at least 3 characters',
+                          },
+                      }}
+                      render={({ fieldState }) => (
+                        <>
+                            <InputController
+                              control={control}
+                              placeholder={t('Password')}
+                              name="password"
+                              id="LoginForm-Login"
+
+                            />
+                            <span>{fieldState?.error?.message}</span>
+                        </>
+                      )}
+                    />
+                    <Button theme={ThemeButton.OUTLINE} className={cls.loginBtn} type="submit" disabled={isLoading}>
+                        {t('Войти')}
+                    </Button>
+                </div>
+            </form>
         </DynamicModuleLoader>
     );
 });
