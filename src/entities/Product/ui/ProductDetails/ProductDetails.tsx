@@ -9,6 +9,7 @@ import {
 import { fetchProductById } from 'entities/Product/model/actions/fetchProductById/fetchProductById';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Text } from 'shared/ui/Text/Text';
+import { AppImage } from 'shared/ui/AppImage';
 import cls from './ProductDetails.module.scss';
 
 interface ProductDetailsProps {
@@ -32,6 +33,14 @@ export const ProductDetails = memo((props: ProductDetailsProps) => {
             dispatch(fetchProductById(id));
         }
     }, [dispatch, id]);
+
+    const fallbackImage = <Skeleton width={200} height={200} className={cls.image} />;
+
+    const errorFallbackImage = (
+        <div>
+            {t('Ошибка загрузки')}
+        </div>
+    );
 
     let content;
 
@@ -58,7 +67,13 @@ export const ProductDetails = memo((props: ProductDetailsProps) => {
             <>
                 <div className={cls.image_wrapper}>
                     <Text className={cls.category} text={product?.category} />
-                    <img className={cls.image} src={product?.image} alt={product?.title} />
+                    <AppImage
+                        fallback={fallbackImage}
+                        errorFallback={errorFallbackImage}
+                        src={product?.image}
+                        alt={product?.title}
+                        className={cls.image}
+                    />
                 </div>
                 <div className={cls.info}>
                     <Text className={cls.title} text={product?.title} />

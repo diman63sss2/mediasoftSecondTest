@@ -7,6 +7,8 @@ import { Loader, ThemeLoader } from 'shared/ui/Loader/Loader';
 import { AddUserProductProps } from 'entities/User/model/actions/addUserProduct';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { getRouteProductPage } from 'shared/const/router';
+import { AppImage } from 'shared/ui/AppImage';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import cls from './ProductListItem.module.scss';
 import { Product } from '../../model/types/product';
 
@@ -32,13 +34,28 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
         }
         return `${title}...`;
     };
-    console.log(isAuth);
+
+    const fallbackImage = <Skeleton width={200} height={200} className={cls.image} />;
+
+    const errorFallbackImage = (
+        <div>
+            {t('Ошибка загрузки')}
+        </div>
+    );
+
     return (
         <li className={classNames(cls.ProductListItem, {}, [className])}>
             <div className={cls.content}>
                 <div className={cls.image_wrapper}>
                     <Text className={cls.category} text={product.category} />
-                    <img className={cls.image} src={product.image} alt={product.title} />
+                    {/* <img className={cls.image} src={product.image} alt={product.title} /> */}
+                    <AppImage
+                        fallback={fallbackImage}
+                        errorFallback={errorFallbackImage}
+                        src={product.image}
+                        alt={product.title}
+                        className={cls.image}
+                    />
                 </div>
                 <div className={cls.info}>
                     <Text className={cls.title} text={shortTitle(product.title)} />
