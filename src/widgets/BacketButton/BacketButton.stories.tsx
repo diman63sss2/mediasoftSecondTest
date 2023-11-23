@@ -2,15 +2,15 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { BasketButton } from './BasketButton';
+import { BacketButton } from './BacketButton';
 import { StoreDecorator } from '../../shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
-    title: 'widgets/BasketButton',
-    component: BasketButton,
-} as ComponentMeta<typeof BasketButton>;
+    title: 'widgets/BacketButton',
+    component: BacketButton,
+} as ComponentMeta<typeof BacketButton>;
 
-const Template: ComponentStory<typeof BasketButton> = () => <BasketButton />;
+const Template: ComponentStory<typeof BacketButton> = () => <BacketButton />;
 
 export const Light = Template.bind({});
 Light.args = {

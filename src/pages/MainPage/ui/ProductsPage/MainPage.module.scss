@@ -14,3 +14,14 @@
     border-radius: 10px;
     align-self: self-start;
 }
+
+@media screen and (max-width: 1024px) {
+    .ProductsPageListContainer {
+        flex-direction: column;
+    }
+
+    .ProductsPageCategories {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+}
