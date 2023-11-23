@@ -49,8 +49,42 @@ export const addUserProduct = (
                     isLoading: false,
                 },
             });
+            return response.data;
         } catch (error) {
             console.log(error);
+            throw error;
+        }
+    } else {
+        try {
+            const response = await $api.post<UserProduct>('/cart/', {
+                id,
+                count: 1,
+            });
+
+            if (!response.data) {
+                throw new Error();
+            }
+
+            dispatch({
+                type: UPDATE_USER_PRODUCTS,
+                payload: response.data,
+            });
+            dispatch({
+                type: UPDATE_USER_PRODUCTS_COUNT,
+            });
+
+            dispatch({
+                type: SET_PRODUCT_IS_LOADING,
+                payload: {
+                    id: response.data.id,
+                    isLoading: false,
+                },
+            });
+
+            return response.data;
+        } catch (error) {
+            console.log(error);
+            throw error;
         }
     }
 };

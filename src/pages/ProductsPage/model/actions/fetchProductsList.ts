@@ -30,7 +30,7 @@ export const fetchProductsList = () => async (
         type: FETCH_PRODUCTS_LIST_REQUEST,
     });
     const state = getState();
-    console.log('fetchProductsList');
+
     const { sort } = state.ProductPageUsernameReducer;
     const { limit } = state.ProductPageUsernameReducer;
     const { page } = state.ProductPageUsernameReducer;

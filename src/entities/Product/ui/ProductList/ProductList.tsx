@@ -34,7 +34,6 @@ export const ProductList = memo((props: ProductListProps) => {
         }));
 
         dispatch(addUserProduct(productUserProps));
-        console.log('add Product');
     }, [dispatch]);
     if (isLoading) {
         return (

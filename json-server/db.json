@@ -246,84 +246,40 @@
   },
   "cart": [
     {
-      "id": 20,
-      "count": 40
-    },
-    {
-      "id": 1,
-      "count": 52
-    },
-    {
-      "id": 15,
-      "count": 35
-    },
-    {
-      "id": 13,
-      "count": 8
-    },
-    {
-      "id": 8,
-      "count": 22
-    },
-    {
-      "id": 6,
-      "count": 4
-    },
-    {
-      "id": 7,
-      "count": 12
-    },
-    {
-      "id": 5,
-      "count": 3
-    },
-    {
-      "id": 2,
-      "count": 4
-    },
-    {
-      "id": 18,
-      "count": 6
-    },
-    {
-      "id": 16,
-      "count": 2
-    },
-    {
-      "id": 19,
-      "count": 3
-    },
-    {
-      "id": 3,
-      "count": 2
-    },
-    {
-      "id": 4,
-      "count": 1
-    },
-    {
-      "id": 17,
-      "count": 3
-    },
-    {
       "id": 10,
-      "count": 13
+      "count": 2
     },
     {
       "id": 11,
-      "count": 8
+      "count": 1
     },
     {
-      "id": 14,
-      "count": 9
+      "id": 1,
+      "count": 2
     },
     {
-      "id": 12,
-      "count": 7
+      "id": 13,
+      "count": 1
     },
     {
-      "id": 9,
-      "count": 3
+      "id": 15,
+      "count": 1
+    },
+    {
+      "id": 20,
+      "count": 1
+    },
+    {
+      "id": 18,
+      "count": 1
+    },
+    {
+      "id": 19,
+      "count": 1
+    },
+    {
+      "id": 16,
+      "count": 1
     }
   ],
   "users": [

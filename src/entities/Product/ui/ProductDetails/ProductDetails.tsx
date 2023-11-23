@@ -60,7 +60,7 @@ export const ProductDetails = memo((props: ProductDetailsProps) => {
         );
     } else if (error) {
         content = (
-            <Text title={t('Произошла ошибка при загрузке статьи.')} />
+            <Text title={t('Произошла ошибка при загрузке статьи!')} />
         );
     } else {
         content = (

@@ -52,7 +52,7 @@ export const ProductPageUsernameReducer = (
         };
     case SET_PRODUCT_IS_LOADING: {
         const { id, isLoading } = action.payload;
-        console.log(`id: ${id} isLoading: ${isLoading}`);
+
         return {
             ...state,
             entities: state.entities.map((item) => {

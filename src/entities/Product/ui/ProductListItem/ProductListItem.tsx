@@ -78,7 +78,7 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
                     </Button>
                 ) : (
                     isAuth && (
-                        <Button className={cls.Button}>{t('Загрузка...')}</Button>
+                        <Button className={cls.Button}>{t('Загрузка!')}</Button>
                     )
                 )}
             </div>

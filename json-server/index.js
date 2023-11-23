@@ -39,26 +39,27 @@ server.post('/login', (req, res) => {
     }
 });
 
-server.get('/products/:productId', (req, res) => {
-    const productId = parseInt(req.params.productId, 10);
-    const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
-    const { products = [] } = db;
+// eslint-disable-next-line
+server.use((req, res, next) => {
+    if (req.method === 'DELETE' && req.url === '/cart') {
+        const currentState = router.db.getState();
 
-    const product = products.find((p) => p.id === productId);
+        currentState.cart = [];
 
-    if (product) {
-        return res.json(product);
+        router.db.setState(currentState);
+
+        return res.status(200).json({});
     }
 
-    return res.status(404).json({ message: 'Product not found' });
+    next();
 });
 
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
 server.use((req, res, next) => {
 
-    if (req.path === '/products' || req.path.startsWith('/products/')) {
-        // Эти маршруты доступны неавторизованным пользователям
+    if (req.path === '/products') {
+        // Этот маршрут доступен неавторизованным пользователям
         return next();
     }
 

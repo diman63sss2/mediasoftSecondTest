@@ -1,6 +1,7 @@
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { initialState, UserProduct, UserSchema } from '../../model/types/user';
 import {
+    CLEAN_USER_CART_SUCCESS,
     FETCH_USER_CART_SUCCESS,
     INIT_AUTH_DATA,
     SET_USER,
@@ -69,6 +70,13 @@ const userReducer = (state: UserSchema = initialState, action: UserActionTypes) 
         return {
             ...state,
             productsCount: state.products.reduce((total, product) => total + product.count, 0),
+        };
+    }
+    case CLEAN_USER_CART_SUCCESS: {
+        return {
+            ...state,
+            productsCount: 0,
+            products: [],
         };
     }
 

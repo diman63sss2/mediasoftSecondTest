@@ -7,6 +7,7 @@ export const USER_LOGOUT = 'USER_LOGOUT';
 export const ADD_USER_PRODUCT_SUCCESS = 'FETCH_PRODUCTS_LIST_SUCCESS';
 export const UPDATE_USER_PRODUCTS = 'UPDATE_USER_PRODUCTS';
 export const UPDATE_USER_PRODUCTS_COUNT = 'UPDATE_USER_PRODUCTS_COUNT';
+export const CLEAN_USER_CART_SUCCESS = 'CLEAN_USER_CART_SUCCESS';
 
 interface SetUserAction {
   type: typeof SET_USER;
@@ -39,6 +40,10 @@ interface UpdateUserProductsCountAction {
   type: typeof UPDATE_USER_PRODUCTS_COUNT;
 }
 
+interface CleanUserCartSuccessAction {
+  type: typeof CLEAN_USER_CART_SUCCESS;
+}
+
 export type UserActionTypes =
   | SetUserAction
   | InitAuthDataAction
@@ -46,4 +51,5 @@ export type UserActionTypes =
   | UserLogoutAction
   | AddUserProductAction
   | UpdateUserProductsAction
-  | UpdateUserProductsCountAction;
+  | UpdateUserProductsCountAction
+  | CleanUserCartSuccessAction;
