@@ -247,83 +247,23 @@
   "cart": [
     {
       "id": 20,
-      "count": 37
-    },
-    {
-      "id": 1,
-      "count": 44
+      "count": 3
     },
     {
       "id": 15,
-      "count": 35
+      "count": 2
     },
     {
       "id": 13,
-      "count": 6
-    },
-    {
-      "id": 8,
-      "count": 21
-    },
-    {
-      "id": 6,
-      "count": 2
-    },
-    {
-      "id": 7,
-      "count": 14
-    },
-    {
-      "id": 5,
-      "count": 3
-    },
-    {
-      "id": 2,
-      "count": 4
-    },
-    {
-      "id": 18,
-      "count": 5
-    },
-    {
-      "id": 16,
       "count": 1
     },
     {
-      "id": 19,
-      "count": 3
-    },
-    {
-      "id": 3,
-      "count": 3
-    },
-    {
-      "id": 4,
+      "id": 5,
       "count": 2
     },
     {
-      "id": 17,
-      "count": 3
-    },
-    {
-      "id": 10,
-      "count": 15
-    },
-    {
-      "id": 11,
-      "count": 14
-    },
-    {
-      "id": 14,
-      "count": 9
-    },
-    {
-      "id": 12,
-      "count": 12
-    },
-    {
-      "id": 9,
-      "count": 6
+      "id": 16,
+      "count": 2
     }
   ],
   "users": [

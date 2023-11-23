@@ -4,6 +4,7 @@ import { loginByUsername } from 'features/AuthByUsername/model/services/loginByU
 import { fetchUserCart } from 'entities/User/model/services/fetchUserCart';
 import { addUserProduct } from 'entities/User/model/services/addUserProduct';
 import { productsPageActions } from 'pages/MainPage/model/slices/productsPageSlice';
+import { cleanUserCart } from 'entities/User/model/services/cleanUserCart';
 import { UserSchema, User, UserProduct } from '../types/user';
 
 const initialState: UserSchema = {
@@ -32,10 +33,8 @@ export const userSlice = createSlice({
         updateUserProducts: (state, action: PayloadAction<UserProduct>) => {
             const index = state.products.findIndex((item) => item.id === action.payload.id);
             if (index !== -1) {
-                // Объект с указанным id найден, заменяем его
                 state.products[index] = action.payload;
             } else {
-                // Объект с указанным id не найден, добавляем новый объект в массив
                 state.products.push(action.payload);
             }
         },
@@ -56,16 +55,23 @@ export const userSlice = createSlice({
 
             })
             .addCase(addUserProduct.pending, (state) => {
-                console.log('addUserProduct.pending');
+
             })
             .addCase(addUserProduct.fulfilled, (state, action: PayloadAction<UserProduct>) => {
-                console.log('addUserProduct.fulfilled');
-                console.log(action.payload);
 
-                console.log('end');
             })
             .addCase(addUserProduct.rejected, (state, action) => {
-                console.log('addUserProduct.rejected');
+
+            })
+            .addCase(cleanUserCart.pending, (state) => {
+
+            })
+            .addCase(cleanUserCart.fulfilled, (state) => {
+                state.products = [];
+                state.productsCount = 0;
+            })
+            .addCase(cleanUserCart.rejected, (state) => {
+
             });
     },
 });

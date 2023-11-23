@@ -20,11 +20,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.CART]: {
         path: getRouteCart(),
         element: <CartPage />,
+        authOnly: true,
     },
     [AppRoutes.PRODUCT_PAGE]: {
         path: getRouteProductPage(':id'),
         element: <ProductPage />,
-        authOnly: true,
     },
     // last
     [AppRoutes.NOT_FOUND]: {

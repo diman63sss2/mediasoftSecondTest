@@ -44,8 +44,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         dispatch(userActions.logout());
     }, [dispatch]);
 
-    const modalClass = [];
-
     if (authData) {
         return (
             <header
@@ -57,10 +55,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     className={classNames(cls.modal, {}, [className, isMenuModal ? cls.active : ''])}
                 >
                     <nav className={cls.links}>
-                        <AppLink theme={AppLinkTheme.PRIMARY} to="/">
+                        <AppLink onClick={onToggleMenu} theme={AppLinkTheme.PRIMARY} to="/">
                             {t('Главная')}
                         </AppLink>
-                        <AppLink theme={AppLinkTheme.PRIMARY} to="/about">
+                        <AppLink onClick={onToggleMenu} theme={AppLinkTheme.PRIMARY} to="/about">
                             {t('О сайте')}
                         </AppLink>
                     </nav>

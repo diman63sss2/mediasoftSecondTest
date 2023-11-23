@@ -39,6 +39,21 @@ server.post('/login', (req, res) => {
     }
 });
 
+// eslint-disable-next-line
+server.use((req, res, next) => {
+    if (req.method === 'DELETE' && req.url === '/cart') {
+        const currentState = router.db.getState();
+
+        currentState.cart = [];
+
+        router.db.setState(currentState);
+
+        return res.status(200).json({});
+    }
+
+    next();
+});
+
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
 server.use((req, res, next) => {

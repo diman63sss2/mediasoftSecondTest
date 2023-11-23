@@ -2,5 +2,6 @@
   "Корзина": "Cart",
   "Ошибка": "Ошибка",
   "ProductsCategory": "ProductsCategory",
-  "ProductsCategory[category as keyof typeof ProductsCategory]": "ProductsCategory[category as keyof typeof ProductsCategory]"
+  "ProductsCategory[category as keyof typeof ProductsCategory]": "ProductsCategory[category as keyof typeof ProductsCategory]",
+  "Очистить корзину": "Очистить корзину"
 }
