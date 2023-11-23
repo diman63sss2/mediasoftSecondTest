@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
 import { setProductIsLoading } from 'pages/ProductsPage/model/actions/setProductIsLoading';
 import { addUserProduct, AddUserProductProps } from 'entities/User/model/actions/addUserProduct';
-import { Product } from '../../model/types/product';
+import { Product } from 'entities/Product/model/types/product';
 import cls from './ProductList.module.scss';
 import { ProductListItem } from '../ProductListItem/ProductListItem';
 

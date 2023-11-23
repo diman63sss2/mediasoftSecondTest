@@ -4,7 +4,6 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 import { ProductList } from './ProductList';
 import { ThemeDecorator } from '../../../../shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '../../../../app/providers/ThemeProvider';
-import { Product } from '../../model/types/product';
 
 export default {
     title: 'entities/Product/ProductList',

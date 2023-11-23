@@ -1,10 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Text } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import cls from './ProductListItem.module.scss';
-import { Product } from '../../model/types/product';
 
 interface ProductListItemSkeletonProps {
   className?: string;
