@@ -9,7 +9,7 @@ import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { getRouteProductPage } from 'shared/const/router';
 import { AppImage } from 'shared/ui/AppImage';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Product } from 'entities/Product/model/types/product';
+import { Product } from 'entities/Product/model/types/Product';
 import cls from './ProductListItem.module.scss';
 
 interface ProductListItemProps {

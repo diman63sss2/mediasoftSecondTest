@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Product } from 'entities/Product/model/types/product';
+import { Product } from 'entities/Product/model/types/Product';
 import { ProductListItem } from './ProductListItem';
 import { ThemeDecorator } from '../../../../shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '../../../../app/providers/ThemeProvider';
