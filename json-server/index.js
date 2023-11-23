@@ -39,12 +39,26 @@ server.post('/login', (req, res) => {
     }
 });
 
+server.get('/products/:productId', (req, res) => {
+    const productId = parseInt(req.params.productId, 10);
+    const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
+    const { products = [] } = db;
+
+    const product = products.find((p) => p.id === productId);
+
+    if (product) {
+        return res.json(product);
+    }
+
+    return res.status(404).json({ message: 'Product not found' });
+});
+
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
 server.use((req, res, next) => {
 
-    if (req.path === '/products') {
-        // Этот маршрут доступен неавторизованным пользователям
+    if (req.path === '/products' || req.path.startsWith('/products/')) {
+        // Эти маршруты доступны неавторизованным пользователям
         return next();
     }
 

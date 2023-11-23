@@ -10,6 +10,8 @@ import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userLogout } from 'entities/User';
+import useWindowSize from 'shared/lib/hooks/useWindowSize/useWindowSize';
+import { BurgerButton } from 'shared/ui/BurgerButton/BurgerButton';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -19,8 +21,10 @@ interface NavbarProps {
 export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
+    const [isMenuModal, setIsMenuModal] = useState(false);
     const isAuth = useSelector(getUserAuthData);
     const dispatch = useDispatch();
+    const windowSize = useWindowSize();
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
@@ -30,62 +34,101 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         setIsAuthModal(true);
     }, []);
 
+    const onToggleMenu = useCallback(() => {
+        if (windowSize.width < 1024) {
+            setIsMenuModal(!isMenuModal);
+        }
+    }, [isMenuModal, windowSize]);
+
     const onLogout = useCallback(() => {
         dispatch(userLogout());
     }, [dispatch]);
 
     if (isAuth.id !== null) {
         return (
-            <header data-testid="navbar" className={classNames(cls.Navbar, {}, [className])}>
-                <AppLogo to="/" />
-                <nav className={cls.links}>
-                    <AppLink theme={AppLinkTheme.PRIMARY} to="/">
-                        {t('Главная')}
-                    </AppLink>
-                    <AppLink theme={AppLinkTheme.PRIMARY} to="/about">
-                        {t('О сайте')}
-                    </AppLink>
-                </nav>
-                <ThemeSwitcher />
-                <LangSwitcher />
-                <Button
-                    className={cls.buttonModal}
-                    theme={ThemeButton.OUTLINE}
-                    onClick={onLogout}
+            <header
+                data-testid="navbar"
+                className={classNames(cls.Navbar, {}, [className, windowSize.width < 1024 ? cls.mobile : ''])}
+            >
+                <AppLogo to="/" className={cls.logo} />
+                <div
+                    className={classNames(cls.modal, {}, [className, isMenuModal ? cls.active : ''])}
                 >
-                    {t('Выйти')}
-                </Button>
-                <BasketButton />
+                    <nav className={cls.links}>
+                        <AppLink onClick={onToggleMenu} theme={AppLinkTheme.PRIMARY} to="/">
+                            {t('Главная')}
+                        </AppLink>
+                        <AppLink onClick={onToggleMenu} theme={AppLinkTheme.PRIMARY} to="/about">
+                            {t('О сайте')}
+                        </AppLink>
+                    </nav>
+                    <div className={cls.subLine}>
+                        <ThemeSwitcher className={cls.themeSwitcher} />
+                        <LangSwitcher className={cls.langSwitcher} />
+                        <Button
+                            className={cls.buttonModal}
+                            theme={ThemeButton.OUTLINE}
+                            onClick={onLogout}
+                        >
+                            {t('Выйти')}
+                        </Button>
+                        <Button theme={ThemeButton.CLEAR} onClick={onToggleMenu}>
+                            <BasketButton className={cls.bucketButton} />
+                        </Button>
+                    </div>
+                </div>
+
+                { windowSize.width < 1024
+              && (
+                  <Button theme={ThemeButton.CLEAR} onClick={onToggleMenu}>
+                      <BurgerButton active={isMenuModal} />
+                  </Button>
+              )}
             </header>
         );
     }
 
     return (
-        <header data-testid="navbar" className={classNames(cls.Navbar, {}, [className])}>
-            <AppLogo to="/" />
-            <nav className={cls.links}>
-                <AppLink theme={AppLinkTheme.PRIMARY} to="/">
-                    {t('Главная')}
-                </AppLink>
-                <AppLink theme={AppLinkTheme.PRIMARY} to="/about">
-                    {t('О сайте')}
-                </AppLink>
-            </nav>
-            <ThemeSwitcher />
-            <LangSwitcher />
-            <Button
-                className={cls.buttonModal}
-                theme={ThemeButton.OUTLINE}
-                onClick={onShowModal}
+        <header
+            data-testid="navbar"
+            className={classNames(cls.Navbar, {}, [className, windowSize.width < 1024 ? cls.mobile : ''])}
+        >
+            <AppLogo to="/" className={cls.logo} />
+            <div
+                className={classNames(cls.modal, {}, [className, isMenuModal ? cls.active : ''])}
             >
-                {t('Войти')}
-            </Button>
-            { isAuthModal && (
-                <LoginModal
-                    isOpen={isAuthModal}
-                    onClose={onCloseModal}
-                />
-            )}
+                <nav className={cls.links}>
+                    <AppLink onClick={onToggleMenu} theme={AppLinkTheme.PRIMARY} to="/">
+                        {t('Главная')}
+                    </AppLink>
+                    <AppLink onClick={onToggleMenu} theme={AppLinkTheme.PRIMARY} to="/about">
+                        {t('О сайте')}
+                    </AppLink>
+                </nav>
+                <div className={cls.subLine}>
+                    <ThemeSwitcher />
+                    <LangSwitcher />
+                    <Button
+                        className={cls.buttonModal}
+                        theme={ThemeButton.OUTLINE}
+                        onClick={onShowModal}
+                    >
+                        {t('Войти')}
+                    </Button>
+                </div>
+                { isAuthModal && (
+                    <LoginModal
+                        isOpen={isAuthModal}
+                        onClose={onCloseModal}
+                    />
+                )}
+            </div>
+            { windowSize.width < 1024
+          && (
+              <Button theme={ThemeButton.CLEAR} onClick={onToggleMenu}>
+                  <BurgerButton active={isMenuModal} />
+              </Button>
+          )}
         </header>
     );
 });

@@ -9,7 +9,7 @@ const AppRouter = () => {
     const isAuth = useSelector(getUserAuthData);
 
     const routes = useMemo(() => Object.values(routeConfig).filter((route) => {
-        if (route.authOnly && !isAuth) {
+        if (route.authOnly && isAuth.id === null) {
             return false;
         }
         return true;
