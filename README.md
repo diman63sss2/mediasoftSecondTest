@@ -3,12 +3,14 @@
 ```
 npm install - устанавливаем зависимости
 npm run start:dev - запуск сервера + frontend проекта в dev режиме
+
 ```
 
 ----
 
 ## Скрипты
-
+- login: admin
+- password: 123
 - `npm run start` - Запуск frontend проекта на webpack dev server
 - `npm run start:dev` - Запуск frontend проекта на webpack dev server + backend
 - `npm run start:dev:server` - Запуск backend сервера
