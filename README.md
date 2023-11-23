@@ -7,10 +7,13 @@ npm run start:dev - запуск сервера + frontend проекта в dev
 ```
 
 ----
-
-## Скрипты
+## Доступы
 - login: admin
 - password: 123
+----
+
+## Скрипты
+
 - `npm run start` - Запуск frontend проекта на webpack dev server
 - `npm run start:dev` - Запуск frontend проекта на webpack dev server + backend
 - `npm run start:dev:server` - Запуск backend сервера
