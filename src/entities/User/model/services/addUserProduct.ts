@@ -49,7 +49,7 @@ export const addUserProduct = createAsyncThunk<
           } else {
               try {
                   const response = await extra.api.post<UserProduct>('/cart/', {
-                      id: productData.id,
+                      id,
                       count: 1,
                   });
 
