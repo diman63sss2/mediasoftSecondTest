@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import CartPage from 'pages/CartPage/ui/CartPage';
 import { Page } from 'widgets/Page/Page';
 import { useParams } from 'react-router-dom';
 import { ProductDetails } from 'entities/Product/ui/ProductDetails/ProductDetails';

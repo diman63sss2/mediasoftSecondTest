@@ -20,4 +20,5 @@ export interface Product {
   rate: number;
   price: number;
   isLoading: boolean;
+  quantity?: number;
 }

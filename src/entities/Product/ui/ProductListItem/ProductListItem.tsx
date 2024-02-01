@@ -78,7 +78,11 @@ export const ProductListItem = memo((props: ProductListItemProps) => {
                         {t('Добавить в корзину')}
                     </Button>
                 ) : isAuth ? (
-                    <Button className={cls.Button}>{t('Загрузка...')}</Button>
+                    <Button className={cls.Button}>
+
+                        {t('Загрузка')}
+
+                    </Button>
                 ) : null}
             </div>
         </li>

@@ -6,8 +6,6 @@ import { useSelector } from 'react-redux';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Text } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Button } from 'shared/ui/Button/Button';
-import { AddUserProductProps } from 'entities/User/model/services/addUserProduct';
 import { AppImage } from 'shared/ui/AppImage';
 import { productDetailsReducer } from '../../model/slice/productDetailsSlice';
 import {
@@ -71,7 +69,8 @@ export const ProductDetails = memo((props: ProductDetailsProps) => {
         );
     } else if (error) {
         content = (
-            <Text title={t('Произошла ошибка при загрузке статьи.')} />
+            <div />
+            /* <Text title={t('Произошла ошибка при загрузке статьи.')} /> */
         );
     } else {
         content = (
