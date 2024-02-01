@@ -1,0 +1,7 @@
+{
+  "Корзина": "Cart",
+  "Ошибка": "Error",
+  "ProductsCategory": "ProductsCategory",
+  "ProductsCategory[category as keyof typeof ProductsCategory]": "ProductsCategory[category as keyof typeof ProductsCategory]",
+  "Очистить корзину": "Empty the trash"
+}

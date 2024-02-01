@@ -1,0 +1,9 @@
+.AppLogo {
+    margin-right: 20px;
+    display: flex;
+}
+
+.AppLogo svg path {
+    fill: var(--navbar-icons) !important;
+    transition: var(--transition-time-switcher) all ease;
+}

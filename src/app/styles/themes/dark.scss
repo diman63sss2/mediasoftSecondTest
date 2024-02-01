@@ -1,0 +1,29 @@
+.dark {
+    --bg-color: #15224f;
+    --inverted-bg-color: #ececec;
+    --primary-color: white;
+    --secondary-color: #9870e8;
+    --inverted-primary-color: #4c9bd3;
+    --inverted-secondary-color: #d64933;
+
+    /* input variables */
+    --input-color: #15224f;
+    --input-bg-color: white;
+
+    /* navbar variables */
+    --navbar-bg: #15224f;
+    --navbar-icons: #9870e8;
+    --navbar-switcher: #9870e8;
+
+    /* card variables */
+    --card-bg-color: #f4f4fb;
+    --card-sub-color: #242c88;
+    --card-color: #242c88;
+
+    // skeleton
+    --skeleton-color: #1515ad;
+    --skeleton-shadow: #2b2be8;
+
+    // card variables
+    --card-bg: var(--secondary-color);
+}

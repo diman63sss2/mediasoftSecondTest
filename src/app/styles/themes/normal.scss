@@ -1,0 +1,29 @@
+.light {
+    --bg-color: #fff;
+    --inverted-bg-color: #000633;
+    --primary-color: #000;
+    --secondary-color: #362db0;
+    --inverted-primary-color: white;
+    --inverted-secondary-color: #d64933;
+
+    /* input variables */
+    --input-color: var(--primary-color);
+    --input-bg-color: #fff;
+
+    /* navbar variables */
+    --navbar-bg: #fff;
+    --navbar-icons: #362db0;
+    --navbar-switcher: #ffd400;
+
+    /* card variables */
+    --card-bg-color: #f4f4fb;
+    --card-sub-color: #000;
+    --card-color: #242c88;
+
+    // skeleton
+    --skeleton-color: #fff;
+    --skeleton-shadow: rgba(0 0 0 / 20%);
+
+    // card variables
+    --card-bg: var(--secondary-color);
+}

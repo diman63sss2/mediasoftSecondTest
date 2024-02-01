@@ -1,0 +1,16 @@
+@import "./reset";
+@import "./src/app/styles/variables/global";
+@import "./src/app/styles/themes/normal";
+@import "./src/app/styles/themes/dark";
+
+body,
+.app {
+    font: var(--font-m);
+    color: var(--primary-color);
+}
+
+.app {
+    background: var(--bg-color);
+    min-height: 100vh;
+    transition: var(--transition-time-switcher) background ease;
+}
